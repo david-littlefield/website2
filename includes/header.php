@@ -1,8 +1,8 @@
 <?php 
-    require_once("includes/configuration.php"); 
-    require_once("includes/classes/Image.php"); 
-    require_once("includes/classes/Image_Grid.php"); 
-    require_once("includes/classes/Image_Grid_Item.php"); 
+    #require_once("includes/configuration.php"); 
+    #require_once("includes/classes/Image.php"); 
+    #require_once("includes/classes/Image_Grid.php"); 
+    #require_once("includes/classes/Image_Grid_Item.php"); 
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +14,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio</title>
     <link rel="shortcut icon" href="#">
-    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="vsc-initialized">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1">
