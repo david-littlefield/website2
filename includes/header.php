@@ -1,8 +1,5 @@
 <?php 
     require_once("includes/configuration.php"); 
-    #require_once("includes/classes/Image.php"); 
-    require_once("includes/classes/Image_Grid.php"); 
-    #require_once("includes/classes/Image_Grid_Item.php"); 
 ?>
 
 <!DOCTYPE html>
