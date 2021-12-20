@@ -12,6 +12,7 @@
         }
 
         public function create($images = null) {
+            echo "test";
             if ($images == null) {
                 echo "test";
                 return $this -> generate_items();
