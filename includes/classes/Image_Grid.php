@@ -1,7 +1,7 @@
 <?php
 
-    require_once("includes/classes/Image.php");
-    require_once("includes/classes/Image_Grid_Item.php");
+    require_once("Image.php");
+    require_once("Image_Grid_Item.php");
 
     class Image_Grid {
 
