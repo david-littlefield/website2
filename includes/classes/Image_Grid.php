@@ -1,7 +1,7 @@
 <?php
 
-    #require_once("includes/classes/Image.php");
-    #require_once("includes/classes/Image_Grid_Item.php");
+    require_once("includes/classes/Image.php");
+    require_once("includes/classes/Image_Grid_Item.php");
 
     class Image_Grid {
 
@@ -27,11 +27,11 @@
             $html = "";
             $html .= "<row>";
             while ($row = $query -> fetch(PDO::FETCH_ASSOC)) {
-                echo $row;
                 $image = new Image($this -> connection, $row, "");
                 $item = new Image_Grid_Item($image);
                 $html .= $item -> create();
                 $index ++;
+                echo $index;
                 if ($index % 2 == 0 && $index != count($count)) {
                     $html .= "</row><row>";
                 }
