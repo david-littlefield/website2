@@ -1,5 +1,8 @@
 <?php
 
+    require_once("includes/classes/Image.php");
+    require_once("includes/classes/Image_Grid_Item.php");
+
     class Image_Grid {
 
         private $connection;
@@ -24,7 +27,7 @@
             $html = "";
             $html .= "<row>";
             while ($row = $query -> fetch(PDO::FETCH_ASSOC)) {
-                $image = new Image($this -> connection, $row);
+                $image = new Image($this -> connection, $row, "");
                 $item = new Image_Grid_Item($image);
                 $html .= $item -> create();
                 $index ++;
