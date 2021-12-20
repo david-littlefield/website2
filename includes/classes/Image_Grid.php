@@ -1,7 +1,7 @@
 <?php
 
-    require_once("Image.php");
-    require_once("Image_Grid_Item.php");
+    #require_once("includes/classes/Image.php");
+    #require_once("includes/classes/Image_Grid_Item.php");
 
     class Image_Grid {
 
@@ -12,9 +12,7 @@
         }
 
         public function create($images = null) {
-            echo "test";
             if ($images == null) {
-                echo "test";
                 return $this -> generate_items();
             } else {
                 return $this -> generate_items_from_images($images);
