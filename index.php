@@ -1,8 +1,8 @@
 <?php
     require_once("includes/header.php");
 
-    $image_grid = new Image_Grid($connection);
-    echo $image_grid -> create();
+    #$image_grid = new Image_Grid($connection);
+    #echo $image_grid -> create();
 ?>
 
         <div class="row text-center">
