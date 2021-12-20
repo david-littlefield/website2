@@ -1,6 +1,7 @@
 <?php
     require_once("includes/header.php");
     require_once("includes/configuration.php");
+    require_once("includes/classes/Image_Grid.php");
 
     $image_grid = new Image_Grid($connection);
     #echo $image_grid -> create();
