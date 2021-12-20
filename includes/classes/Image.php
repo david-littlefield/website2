@@ -7,9 +7,11 @@
 
         public function __construct($connection, $input_data, $input_id) {
             $this -> connection = $connection;
+            echo "image a";
             if (is_array($input_data)) {
                 $this -> image_data = $input_data;
             } else {
+                echo "image b";
                 $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
                 $query -> bindParam(":id", $input_id);
                 $query -> execute();
