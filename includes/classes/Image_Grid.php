@@ -20,6 +20,7 @@
         }
 
         public function generate_items() {
+            echo "generate items a";
             $query = $this -> connection -> prepare("SELECT * FROM images");
             $query -> execute();
             $count = $query -> fetchColumn();
@@ -40,6 +41,7 @@
         }
 
         public function generate_items_from_images($images) {
+            echo "generate items b";
             $index = 0;
             $html = "";
             $html .= "<row>";
