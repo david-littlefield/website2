@@ -31,7 +31,6 @@
                 $item = new Image_Grid_Item($image);
                 $html .= $item -> create();
                 $index ++;
-                echo $count;
                 if ($index % 2 == 0 && $index != $count) {
                     $html .= "</row><row>";
                 }
