@@ -1,66 +1,10 @@
 <?php
     require_once("includes/header.php");
+
+    $image_grid = new Image_Grid($connection);
+    echo $image_grid -> create();
 ?>
 
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfolio</title>
-    <link rel="shortcut icon" href="#">
-    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-</head>
-
-<body class="vsc-initialized">
-
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    Portfolio
-                </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="upload.php">Upload</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">Recent</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    <small>Recent Work</small>
-                </h1>
-            </div>
-        </div>
-        <?php
-            $image_grid = new Image_Grid($connection);
-            echo $image_grid -> create();
-        ?>
         <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
