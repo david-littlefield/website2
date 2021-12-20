@@ -22,7 +22,7 @@
         public function generate_items() {
             $query = $this -> connection -> prepare("SELECT * FROM images");
             $query -> execute();
-            $count = $query -> fetchColumn();
+            $count = $query -> rowCount();
             $index = 0;
             $html = "";
             $html .= "<row>";
@@ -32,7 +32,7 @@
                 $html .= $item -> create();
                 $index ++;
                 echo $count;
-                if ($index % 2 == 0 && $index != count($count)) {
+                if ($index % 2 == 0 && $index != $count) {
                     $html .= "</row><row>";
                 }
             }
