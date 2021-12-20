@@ -4,7 +4,7 @@
     require_once("includes/classes/Image_Grid.php");
 
     $image_grid = new Image_Grid($connection);
-    #echo $image_grid -> create();
+    echo $image_grid -> create();
 ?>
 
         <div class="row text-center">
@@ -63,6 +63,6 @@
     </div>
 
 <?php 
-    #require_once("includes/footer.php"); 
+    require_once("includes/footer.php"); 
 ?>
 
