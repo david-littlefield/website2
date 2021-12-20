@@ -1,5 +1,7 @@
 <?php
 
+    require_once("includes/configuration.php");
+
     class Image {
 
         private $connection;
