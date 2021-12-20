@@ -7,8 +7,8 @@
 
         public function __construct($connection, $input_data, $input_id) {
             $this -> connection = $connection;
-            echo "image a";
             if (is_array($input_data)) {
+                echo "image a";
                 $this -> image_data = $input_data;
             } else {
                 echo "image b";
