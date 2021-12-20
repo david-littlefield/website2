@@ -20,7 +20,6 @@
         }
 
         public function generate_items() {
-            echo "generate items a";
             $query = $this -> connection -> prepare("SELECT * FROM images");
             $query -> execute();
             $count = $query -> fetchColumn();
@@ -28,6 +27,7 @@
             $html = "";
             $html .= "<row>";
             while ($row = $query -> fetch(PDO::FETCH_ASSOC)) {
+                echo $row;
                 $image = new Image($this -> connection, $row, "");
                 $item = new Image_Grid_Item($image);
                 $html .= $item -> create();
@@ -41,7 +41,6 @@
         }
 
         public function generate_items_from_images($images) {
-            echo "generate items b";
             $index = 0;
             $html = "";
             $html .= "<row>";
