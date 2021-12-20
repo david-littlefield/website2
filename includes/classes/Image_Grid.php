@@ -13,7 +13,7 @@
 
         public function create($images = null) {
             if ($images == null) {
-                $this -> generate_items();
+                return $this -> generate_items();
             } else {
                 return $this -> generate_items_from_images($images);
             }
