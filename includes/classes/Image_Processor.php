@@ -11,7 +11,7 @@
 
         public function upload($upload_data) {
             $random_id = uniqid();
-            $unsplash_url = $upload_data -> $unsplash_url;
+            $unsplash_url = $upload_data -> unsplash_url;
             $image_url = $unsplash_url . "/download";
 
             echo $unsplash_url . "\n" . $image_url . "\n";
