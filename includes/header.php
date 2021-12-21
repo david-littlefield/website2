@@ -28,7 +28,7 @@
                     <li>
                         <a href="upload.php">Upload</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/">Recent</a>
                     </li>
                 </ul>
