@@ -60,6 +60,8 @@
 
         public function resolve_source_url($headers) {
             $source_url = $headers["Location"];
+            $source_url = explode("?", $source_url);
+            $source_url = reset($source_url);
             return $source_url;
         }
     
