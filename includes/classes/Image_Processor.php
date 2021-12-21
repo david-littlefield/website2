@@ -83,7 +83,7 @@
             return in_array($lowercased, $this -> allowed_types);
         }
 
-        private function insert_image_data($unsplash_url, $url, $path, $filename, $location, $description) {
+        private function insert_image_data($unsplash_url, $path, $filename, $location, $description) {
             $query = $this -> connection -> prepare("INSERT INTO images (unsplash_url, path, filename, location, description) VALUES (:unsplash_url, :path, :filename, :location, :description)");
             $query->bindParam(":unsplash_url", $unsplash_url);
             $query->bindParam(":path", $path);
