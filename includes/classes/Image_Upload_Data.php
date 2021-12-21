@@ -2,11 +2,11 @@
 
     class Image_Upload_Data {
 
-        private $url;
-        private $path;
-        private $filename;
-        private $location;
-        private $description;
+        public $url;
+        public $path;
+        public $filename;
+        public $location;
+        public $description;
 
         public function __construct($url, $path, $filename, $location, $description) {
             $this -> url = $url;
