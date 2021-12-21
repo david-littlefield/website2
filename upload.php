@@ -3,6 +3,8 @@
     require_once("includes/classes/Image_Details_Form_Provider.php"); 
     require_once("includes/header.php"); 
 ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
@@ -33,7 +35,6 @@
                 </div>
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php 
     require_once("includes/footer.php"); 
 ?>
