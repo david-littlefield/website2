@@ -24,9 +24,17 @@
                     return false;
                 }
                 $filename = $random_id . "." . $content_type;
-            } else {
-                $filename = $random_id . "." . $file_type;
+                $path = "assets/images/" . $filename;
+                $data = file_get_contents($url);
+                if (file_put_contents($path, $data)) {
+                    if (!$this -> insert_image_data($url, $path, $filename, $location, $description)) {
+                        echo "Insert query failed";
+                        return false;
+                    }
+                    return true;
+                }
             }
+            $filename = $random_id . "." . $file_type;
             $path = "assets/images/" . $filename;
             $data = file_get_contents($url);
             if (file_put_contents($path, $data)) {
