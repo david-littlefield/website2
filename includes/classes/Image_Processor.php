@@ -52,16 +52,16 @@
             return true;
         }
 
-        public function resolve_content_type($headers) {
-            $content_type = end($headers["Content-Type"]);
+        public function resolve_content_type($input) {
+            $content_type = end($input["Content-Type"]);
             $content_type = explode("/", $content_type);
             $content_type = end($content_type);
             $content_type = strtolower($content_type);
             return $content_type;
         }
 
-        public function resolve_source_url($headers) {
-            $source_url = end($headers["Location"]);
+        public function resolve_source_url($input) {
+            $source_url = end($input["Location"]);
             var_dump($source_url);
             #$content_type = explode("/", $content_type);
             #$content_type = end($content_type);
