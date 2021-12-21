@@ -3,6 +3,13 @@
     require_once("includes/classes/Image_Details_Form_Provider.php"); 
     require_once("includes/header.php"); 
 ?>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <small>Upload Image</small>
+                </h1>
+            </div>
+        </div>
         <div class="column">
             <?php
                 $form_provider = new Image_Details_Form_Provider($connection);
@@ -21,7 +28,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         Please wait. This should only take a moment.
-                        <img src="assets/images/icons/loading-spinner.gif">
+                        <img src="assets/images/loading-spinner.gif">
                     </div>
                 </div>
             </div>
