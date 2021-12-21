@@ -13,7 +13,7 @@
             $location_text_field = $this -> create_location_text_field(null);
             $description_text_field = $this -> create_description_text_field(null);
             $upload_button = $this -> create_upload_button();
-            return "<form action='processing.php' method='POST' enctype='multipart/form-data'>
+            return "<form action='process.php' method='POST' enctype='multipart/form-data'>
                         $url_text_field
                         $location_text_field
                         $description_text_field
