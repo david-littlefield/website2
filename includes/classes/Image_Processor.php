@@ -12,7 +12,7 @@
 
         public function upload($image_upload_data) {
             $headers = get_headers("https://unsplash.com/photos/UoqAR2pOxMo/download", true);
-            $header = end($headers["Content-Type"]);
+            $header = explode("/", end($headers["Content-Type"]));
             var_dump($header);
             $output_file_directory = "assets/images/";
             $url = $image_upload_data -> url;
