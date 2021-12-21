@@ -25,7 +25,7 @@
                     return false;
                 }
                 $filename = $random_id . "." . $content_type;
-                $path = "assets/images/" . $filename;
+                $path = "/var/www/html/assets/images/" . $filename;
                 $source_url = $this -> resolve_source_url($headers);
                 $this -> download_file($source_url, $path);
                 if (!file_exists($path)) {
@@ -69,7 +69,7 @@
 
         public function download_file($url, $path) {
             $curl = curl_init($url);
-            $file_pointer = fopen($path, 'wb');
+            $file_pointer = fopen($path, 'w+');
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
             curl_setopt($curl, CURLOPT_HEADER, 0);
