@@ -27,7 +27,7 @@
                 $filename = $random_id . "." . $content_type;
                 $path = "assets/images/" . $filename;
                 $source_url = $this -> resolve_source_url($headers);
-                if (!file_put_contents($path, file_get_contents($source_url))) {
+                if (!download_file($source_url)) {
                     echo "Download image failed";
                     return false;
                 }
@@ -39,7 +39,7 @@
             }
             $filename = $random_id . "." . $file_type;
             $path = "assets/images/" . $filename;
-            if (!file_put_contents($path, file_get_contents($url))) {
+            if (!download_file($url)) {
                 echo "Download image failed";
                 return false;
             }
@@ -63,6 +63,17 @@
             $source_url = explode("?", $source_url);
             $source_url = reset($source_url);
             return $source_url;
+        }
+
+        public function download_file($url, $path) {
+            $curl_handler = curl_init($url);
+            $file_pointer = fopen($path, 'wb');
+            curl_setopt($curl_handler, CURLOPT_FILE, $file_pointer);
+            curl_setopt($curl_handler, CURLOPT_HEADER, 0);
+            curl_exec($curl_handler);
+            curl_close($curl_handler);
+            fclose($file_pointer);
+            return file_exists($path);
         }
     
         private function is_valid_type($image_type) {
