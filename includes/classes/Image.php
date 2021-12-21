@@ -25,10 +25,6 @@
             return $this -> image_data["unsplash_url"];
         }
         
-        public function get_image_url() {
-            return $this -> image_data["image_url"];
-        }
-        
         public function get_path() {
             return $this -> image_data["path"];
         }

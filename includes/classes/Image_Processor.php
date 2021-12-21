@@ -12,7 +12,7 @@
         public function upload($upload_data) {
             $random_id = uniqid();
             $unsplash_url = $upload_data -> $unsplash_url;
-            $image_url = $upload_data -> image_url;
+            $image_url = $unsplash_url . "/download";
             $location = $upload_data -> location;
             $description = $upload_data -> description;
             $file_type = pathinfo($image_url, PATHINFO_EXTENSION);
@@ -84,9 +84,8 @@
         }
 
         private function insert_image_data($unsplash, $url, $path, $filename, $location, $description) {
-            $query = $this -> connection -> prepare("INSERT INTO images (unsplash, url, path, filename, location, description) VALUES (:unsplash, :url, :path, :filename, :location, :description)");
-            $query->bindParam(":unsplash", $unsplash);
-            $query->bindParam(":image", $url);
+            $query = $this -> connection -> prepare("INSERT INTO images (unsplash_url, url, path, filename, location, description) VALUES (:unsplash_url, :url, :path, :filename, :location, :description)");
+            $query->bindParam(":unsplash_url", $unsplash);
             $query->bindParam(":path", $path);
             $query->bindParam(":filename", $filename);
             $query->bindParam(":location", $location);

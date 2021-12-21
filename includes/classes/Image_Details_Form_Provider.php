@@ -10,13 +10,11 @@
 
         public function create_upload_form() {
             $unsplash_url_text_field = $this -> create_unsplash_url_text_field(null);
-            $image_url_text_field = $this -> create_image_url_text_field(null);
             $location_text_field = $this -> create_location_text_field(null);
             $description_text_field = $this -> create_description_text_field(null);
             $upload_button = $this -> create_upload_button();
             return "<form action='process.php' method='POST' enctype='multipart/form-data'>
                         $unsplash_url_text_field
-                        $image_url_text_field
                         $location_text_field
                         $description_text_field
                         $upload_button
@@ -29,15 +27,6 @@
             }
             return "<div class='form-group'>
                     <input class='form-control' type='text' placeholder='Unsplash URL' name='unsplash_input' value='$value'> 
-                </div>";
-        }
-
-        public function create_image_url_text_field($value) {
-            if ($value == null) {
-                $value = "";
-            }
-            return "<div class='form-group'>
-                    <input class='form-control' type='text' placeholder='Image URL' name='image_input' value='$value'> 
                 </div>";
         }
 
