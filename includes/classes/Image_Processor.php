@@ -11,7 +11,7 @@
         }
 
         public function upload($image_upload_data) {
-            echo get_headers("https://unsplash.com/photos/UoqAR2pOxMo/download", true);
+            var_dump(get_headers("https://unsplash.com/photos/UoqAR2pOxMo/download", true));
             $output_file_directory = "assets/images/";
             $url = $image_upload_data -> url;
             $id = uniqid();
