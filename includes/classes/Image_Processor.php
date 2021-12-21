@@ -26,7 +26,7 @@
                     return false;
                 }
                 $filename = $random_id . "." . $content_type;
-                $path = "/var/www/html/assets/images/" . $filename;
+                $path = "assets/images/" . $filename;
                 $source_url = $this -> resolve_source_url($headers);
                 $this -> download_file($source_url, $path);
                 if (!file_exists($path)) {
