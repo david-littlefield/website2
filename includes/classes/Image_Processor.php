@@ -18,7 +18,6 @@
             $description = $upload_data -> description;
             $file_type = pathinfo($url, PATHINFO_EXTENSION);
             $headers = get_headers($url, true);
-            var_dump($headers);
             if (!$this -> is_valid_type($file_type)) {
                 $content_type = $this -> resolve_content_type($headers);
                 if (!$this -> is_valid_type($content_type)) {
@@ -77,6 +76,7 @@
             curl_setopt($curl, CURLOPT_FILE, $file_pointer);
             curl_exec($curl);
             curl_close($curl);
+            echo $file_pointer;
             fclose($file_pointer);
         }
     
