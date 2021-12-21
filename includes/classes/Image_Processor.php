@@ -3,31 +3,33 @@
     class Image_Processor {
 
         private $connection;
-        private $size_limit = 50000000;
         private $allowed_types = array("jpeg", "jpg", "webp");
 
         public function __construct($connection) {
             $this -> connection = $connection;
         }
 
-        public function upload($image_upload_data) {
-            $headers = get_headers("https://unsplash.com/photos/UoqAR2pOxMo/download", true);
-            $header = end(explode("/", end($headers["Content-Type"])));
-            echo $header;
-            $output_file_directory = "assets/images/";
-            $url = $image_upload_data -> url;
-            $id = uniqid();
-            $extension = pathinfo($url, PATHINFO_EXTENSION);
-            $path = $output_file_directory . $id . "." . $extension;
-            $filename = $id . "." . $extension;
-            $location = $image_upload_data -> location;
-            $description = $image_upload_data -> description;
-            $is_valid_data = $this -> process_data($image_data, $path);
-            #echo $url . " " . $id . " " . $extension . " " . $path . " " . $filename . " " . $location . " " . $description;
-            if (!$is_valid_data) {
-                return false;
+
+
+        public function upload($upload_data) {
+            $random_id = uniqid();
+            $url = $upload_data -> url;
+            $location = $upload_data -> location;
+            $description = $upload_data -> description;
+            $file_type = pathinfo($url, PATHINFO_EXTENSION);
+            if (!is_valid_type($file_type)) {
+                $content_type = resolve_content_type($url);
+                if (!is_valid_type($content_type)) {
+                    echo "Invalid file type";
+                    return false;
+                }
+                $filename = $random_id . "." . $content_type;
+            } else {
+                $filename = $random_id . "." . $file_type;
             }
-            if (file_put_contents($path, file_get_contents($url))) {
+            $path = "assets/images/" . $filename;
+            $data = file_get_contents($url);
+            if (file_put_contents($path, $data)) {
                 if (!$this -> insert_image_data($url, $path, $filename, $location, $description)) {
                     echo "Insert query failed";
                     return false;
@@ -36,24 +38,13 @@
             }
         }
 
-        private function process_data($image_data, $path) {
-            $image_type = pathinfo($file_path, PATHINFO_EXTENSION);
-            if (!$this -> is_valid_size($image_data)) {
-                echo "File too large. Must be less than " . $this -> size_limit . "bytes."; 
-            }
-            else if (!$this -> is_valid_type($image_type)) {
-                echo "Invalid file type";
-                return false;
-            }
-            else if ($this -> has_error($image_data)) {
-                echo "Error code: " . $image_data["error"];
-                return false;
-            }
-            return true;
-        }
-
-        private function is_valid_size($image_data) {
-            return $image_data["size"] <= $this -> size_limit;
+        public function resolve_content_type($url) {
+            $headers = get_headers($url, true);
+            $content_type = end($headers["Content-Type"]);
+            $content_type = explode("/", $content_type);
+            $content_type = end($content_type);
+            $content_type = strtolower($content_type);
+            return $content_type;
         }
     
         private function is_valid_type($image_type) {
