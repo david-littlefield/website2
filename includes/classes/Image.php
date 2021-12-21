@@ -21,8 +21,12 @@
             return $this -> image_data["id"];
         }
 
-        public function get_url() {
-            return $this -> image_data["url"];
+        public function get_unsplash_url() {
+            return $this -> image_data["unsplash_url"];
+        }
+        
+        public function get_image_url() {
+            return $this -> image_data["image_url"];
         }
         
         public function get_path() {

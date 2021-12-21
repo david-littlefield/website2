@@ -9,24 +9,35 @@
         }
 
         public function create_upload_form() {
-            $url_text_field = $this -> create_url_text_field(null);
+            $unsplash_url_text_field = $this -> create_unsplash_text_field(null);
+            $image_url_text_field = $this -> create_image_url_text_field(null);
             $location_text_field = $this -> create_location_text_field(null);
             $description_text_field = $this -> create_description_text_field(null);
             $upload_button = $this -> create_upload_button();
             return "<form action='process.php' method='POST' enctype='multipart/form-data'>
-                        $url_text_field
+                        $unsplash_url_text_field
+                        $image_url_text_field
                         $location_text_field
                         $description_text_field
                         $upload_button
                     </form>";
         }
 
-        public function create_url_text_field($value) {
+        public function create_unsplash_url_text_field($value) {
             if ($value == null) {
                 $value = "";
             }
             return "<div class='form-group'>
-                    <input class='form-control' type='text' placeholder='Url' name='url_input' value='$value'> 
+                    <input class='form-control' type='text' placeholder='Unsplash URL' name='unsplash_input' value='$value'> 
+                </div>";
+        }
+
+        public function create_image_url_text_field($value) {
+            if ($value == null) {
+                $value = "";
+            }
+            return "<div class='form-group'>
+                    <input class='form-control' type='text' placeholder='Image URL' name='image_input' value='$value'> 
                 </div>";
         }
 

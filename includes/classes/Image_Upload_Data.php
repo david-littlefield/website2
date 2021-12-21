@@ -2,14 +2,16 @@
 
     class Image_Upload_Data {
 
-        public $url;
+        public $unsplash_url;
+        public $image_url;
         public $path;
         public $filename;
         public $location;
         public $description;
 
-        public function __construct($url, $path, $filename, $location, $description) {
-            $this -> url = $url;
+        public function __construct($unsplash_url, $image_url, $path, $filename, $location, $description) {
+            $this -> unsplash_url = $unsplash_url;
+            $this -> image_url = $image_url;
             $this -> path = $path;
             $this -> filename = $filename;
             $this -> location = $location;
@@ -17,8 +19,9 @@
         }
 
         public function update_details($connection, $id) {
-            $query = $connection -> prepare("update images set url = :url, path = :path, filename = :filename, location =: location, description =: description where id = :id)");
-            $query -> bindParam(":url", $this -> url);
+            $query = $connection -> prepare("update images set unsplash_url = :unsplash_url, image_url = :image_url, path = :path, filename = :filename, location =: location, description =: description where id = :id)");
+            $query -> bindParam(":unsplash_url", $this -> unsplash_url);
+            $query -> bindParam(":image_url", $this -> image_url);
             $query -> bindParam(":path", $this -> path);
             $query -> bindParam(":filename", $this -> filename);
             $query -> bindParam(":location", $this -> location);

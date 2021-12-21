@@ -9,15 +9,14 @@
             $this -> connection = $connection;
         }
 
-
-
         public function upload($upload_data) {
             $random_id = uniqid();
-            $url = $upload_data -> url;
+            $unsplash_url = $upload_data -> $unsplash_url;
+            $image_url = $upload_data -> image_url;
             $location = $upload_data -> location;
             $description = $upload_data -> description;
-            $file_type = pathinfo($url, PATHINFO_EXTENSION);
-            $headers = get_headers($url, true);
+            $file_type = pathinfo($image_url, PATHINFO_EXTENSION);
+            $headers = get_headers($image_url, true);
             if (!$this -> is_valid_type($file_type)) {
                 $content_type = $this -> resolve_content_type($headers);
                 if (!$this -> is_valid_type($content_type)) {
@@ -25,27 +24,27 @@
                     return false;
                 }
                 $filename = $random_id . "." . $content_type;
-                $path = "/var/www/html/assets/images/" . $filename;
+                $path = "assets/images/" . $filename;
                 $source_url = $this -> resolve_source_url($headers);
                 $this -> download_file($source_url, $path);
                 if (!file_exists($path)) {
                     echo "Download image failed";
                     return false;
                 }
-                if (!$this -> insert_image_data($url, $path, $filename, $location, $description)) {
+                if (!$this -> insert_image_data($unsplash_url, $image_url, $path, $filename, $location, $description)) {
                     echo "Insert query failed";
                     return false;
                 }
                 return true;
             }
             $filename = $random_id . "." . $file_type;
-            $path = "/var/www/html/assets/images/" . $filename;
+            $path = "assets/images/" . $filename;
             $this -> download_file($url, $path);
             if (!file_exists($path)) {
                 echo "Download image failed";
                 return false;
             }
-            if (!$this -> insert_image_data($url, $path, $filename, $location, $description)) {
+            if (!$this -> insert_image_data($unsplash_url, $image_url, $path, $filename, $location, $description)) {
                 echo "Insert query failed";
                 return false;
             }
@@ -62,8 +61,6 @@
 
         public function resolve_source_url($headers) {
             $source_url = $headers["Location"];
-            #$source_url = explode("?", $source_url);
-            #$source_url = reset($source_url);
             return $source_url;
         }
 
@@ -86,9 +83,10 @@
             return in_array($lowercased, $this -> allowed_types);
         }
 
-        private function insert_image_data($url, $path, $filename, $location, $description) {
-            $query = $this -> connection -> prepare("INSERT INTO images (url, path, filename, location, description) VALUES (:url, :path, :filename, :location, :description)");
-            $query->bindParam(":url", $url);
+        private function insert_image_data($unsplash, $url, $path, $filename, $location, $description) {
+            $query = $this -> connection -> prepare("INSERT INTO images (unsplash, url, path, filename, location, description) VALUES (:unsplash, :url, :path, :filename, :location, :description)");
+            $query->bindParam(":unsplash", $unsplash);
+            $query->bindParam(":image", $url);
             $query->bindParam(":path", $path);
             $query->bindParam(":filename", $filename);
             $query->bindParam(":location", $location);
