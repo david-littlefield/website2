@@ -9,6 +9,8 @@
         exit();
     }
 
+    var_dump($_POST);
+
     $image_upload_data = new Image_Upload_Data(
         $_POST["url_input"], 
         "",
