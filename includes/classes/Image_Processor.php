@@ -71,7 +71,7 @@
             $curl = curl_init($url);
             $file_pointer = fopen($path, 'wb');
             curl_setopt($curl, CURLOPT_FILE, $file_pointer);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_HEADER, 0);
             curl_exec($curl);
             curl_close($curl);
