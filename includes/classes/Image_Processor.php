@@ -27,7 +27,7 @@
                 $filename = $random_id . "." . $content_type;
                 $path = "assets/images/" . $filename;
                 $source_url = $this -> resolve_source_url($headers);
-                if (!download_file($source_url)) {
+                if (!$this -> download_file($source_url)) {
                     echo "Download image failed";
                     return false;
                 }
@@ -39,7 +39,7 @@
             }
             $filename = $random_id . "." . $file_type;
             $path = "assets/images/" . $filename;
-            if (!download_file($url)) {
+            if (!$this -> download_file($url)) {
                 echo "Download image failed";
                 return false;
             }
