@@ -9,6 +9,8 @@
             $this -> connection = $connection;
         }
 
+        
+
         public function upload($upload_data) {
             $random_id = uniqid();
             $unsplash_url = $upload_data -> unsplash_url;
