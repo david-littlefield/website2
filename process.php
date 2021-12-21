@@ -17,11 +17,11 @@
         $_POST["description_input"], 
     );
 
-    $image_processor = new Image_Processor($connection);
-    $was_uploaded = $image_processor -> upload($image_upload_data);
+    #$image_processor = new Image_Processor($connection);
+    #$was_uploaded = $image_processor -> upload($image_upload_data);
 
-    if ($was_uploaded) {
-        echo "Upload successful";
-    }
+    #if ($was_uploaded) {
+    #    echo "Upload successful";
+    #}
 
 ?>
