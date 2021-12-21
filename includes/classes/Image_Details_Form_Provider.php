@@ -9,7 +9,7 @@
         }
 
         public function create_upload_form() {
-            $unsplash_url_text_field = $this -> create_unsplash_text_field(null);
+            $unsplash_url_text_field = $this -> create_unsplash_url_text_field(null);
             $image_url_text_field = $this -> create_image_url_text_field(null);
             $location_text_field = $this -> create_location_text_field(null);
             $description_text_field = $this -> create_description_text_field(null);
