@@ -27,9 +27,8 @@
                 $filename = $random_id . "." . $content_type;
                 $path = "assets/images/" . $filename;
                 $source_url = $this -> resolve_source_url($headers);
-                echo file_get_contents($source_url);
-                var_dump(file_get_contents($source_url));
-                if (false) {
+                $this -> download_file($source_url, $path);
+                if (!file_exists($path)) {
                     echo "Download image failed";
                     return false;
                 }
@@ -41,7 +40,8 @@
             }
             $filename = $random_id . "." . $file_type;
             $path = "assets/images/" . $filename;
-            if (!$this -> download_file($url, $path)) {
+            $this -> download_file($url, $path);
+            if (!file_exists($path)) {
                 echo "Download image failed";
                 return false;
             }
@@ -68,12 +68,13 @@
         }
 
         public function download_file($url, $path) {
-            $curl_handler = curl_init($url);
+            $curl = curl_init($url);
             $file_pointer = fopen($path, 'wb');
-            curl_setopt($curl_handler, CURLOPT_FILE, $file_pointer);
-            curl_setopt($curl_handler, CURLOPT_HEADER, 0);
-            curl_exec($curl_handler);
-            curl_close($curl_handler);
+            curl_setopt($curl, CURLOPT_FILE, $file_pointer);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_HEADER, 0);
+            curl_exec($curl);
+            curl_close($curl);
             fclose($file_pointer);
         }
     
