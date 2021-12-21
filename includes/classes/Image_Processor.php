@@ -18,7 +18,7 @@
             $description = $upload_data -> description;
             $file_type = pathinfo($url, PATHINFO_EXTENSION);
             if (!$this -> is_valid_type($file_type)) {
-                $content_type = resolve_content_type($url);
+                $content_type = $this -> resolve_content_type($url);
                 if (!$this -> is_valid_type($content_type)) {
                     echo "Invalid file type";
                     return false;
