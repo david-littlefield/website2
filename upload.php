@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <small>Upload Image</small>
+                    <small>Upload</small>
                 </h1>
             </div>
         </div>
