@@ -50,6 +50,7 @@
 
         public function resolve_content_type($url) {
             $headers = get_headers($url, true);
+            var_dump($headers);
             $content_type = end($headers["Content-Type"]);
             $content_type = explode("/", $content_type);
             $content_type = end($content_type);
