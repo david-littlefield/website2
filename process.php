@@ -1,7 +1,8 @@
 <?php 
-    require_once("includes/configuration.php");
+
     require_once("includes/classes/Image_Upload_Data.php"); 
     require_once("includes/classes/Image_Processor.php"); 
+    require_once("includes/configuration.php");
     require_once("includes/header.php"); 
 
     if (!isset($_POST["upload_button"])) {
@@ -20,8 +21,12 @@
     $image_processor = new Image_Processor($connection);
     $was_uploaded = $image_processor -> upload($image_upload_data);
 
-    if ($was_uploaded) {
-        echo "Upload successful";
+    if (!$was_uploaded) {
+        echo "Upload was unsuccessful";
+    } else {
+        header("Location: https://www.squidproquo.io/");
     }
+    
+    require_once("includes/footer.php"); 
 
 ?>
