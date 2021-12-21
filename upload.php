@@ -1,6 +1,7 @@
 <?php 
-    require_once("includes/header.php"); 
+    require_once("includes/configuration.php"); 
     require_once("includes/classes/Image_Details_Form_Provider.php"); 
+    require_once("includes/header.php"); 
 ?>
         <div class="column">
             <?php
