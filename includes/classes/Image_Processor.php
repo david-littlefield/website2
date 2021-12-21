@@ -18,6 +18,7 @@
             $description = $upload_data -> description;
             $file_type = pathinfo($url, PATHINFO_EXTENSION);
             $headers = get_headers($url, true);
+            var_dump($headers);
             if (!$this -> is_valid_type($file_type)) {
                 $content_type = $this -> resolve_content_type($headers);
                 if (!$this -> is_valid_type($content_type)) {
@@ -64,6 +65,7 @@
             $source_url = $headers["Location"];
             $source_url = explode("?", $source_url);
             $source_url = reset($source_url);
+            echo $source_url;
             return $source_url;
         }
 
