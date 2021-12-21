@@ -11,7 +11,9 @@
         }
 
         public function upload($image_upload_data) {
-            var_dump(get_headers("https://unsplash.com/photos/UoqAR2pOxMo/download", true));
+            $headers = get_headers("https://unsplash.com/photos/UoqAR2pOxMo/download", true);
+            $header = $headers["Content-Type"];
+            var_dump($header);
             $output_file_directory = "assets/images/";
             $url = $image_upload_data -> url;
             $id = uniqid();
@@ -21,7 +23,7 @@
             $location = $image_upload_data -> location;
             $description = $image_upload_data -> description;
             $is_valid_data = $this -> process_data($image_data, $path);
-            echo $url . " " . $id . " " . $extension . " " . $path . " " . $filename . " " . $location . " " . $description;
+            #echo $url . " " . $id . " " . $extension . " " . $path . " " . $filename . " " . $location . " " . $description;
             if (!$is_valid_data) {
                 return false;
             }
