@@ -40,7 +40,7 @@
                 return true;
             }
             $filename = $random_id . "." . $file_type;
-            $path = "assets/images/" . $filename;
+            $path = "var/www/html/assets/images/" . $filename;
             $this -> download_file($url, $path);
             if (!file_exists($path)) {
                 echo "Download image failed";
@@ -65,12 +65,6 @@
             $source_url = $headers["Location"];
             $source_url = explode("?", $source_url);
             $source_url = reset($source_url);
-            echo $source_url;
-            $headers = get_headers($source_url, true);
-            $source_url = $headers["Location"];
-            $source_url = explode("?", $source_url);
-            $source_url = reset($source_url);
-            echo $source_url;
             return $source_url;
         }
 
@@ -78,7 +72,8 @@
             $curl = curl_init($url);
             $file_pointer = fopen($path, 'wb');
             curl_setopt($curl, CURLOPT_FILE, $file_pointer);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
             curl_setopt($curl, CURLOPT_HEADER, 0);
             curl_exec($curl);
             curl_close($curl);
