@@ -36,7 +36,7 @@
                     echo "Download image failed";
                     return false;
                 }
-                if (!$this -> insert_image_data($unsplash_url, $image_url, $path, $filename, $location, $description)) {
+                if (!$this -> insert_image_data($unsplash_url, $path, $filename, $location, $description)) {
                     echo "Insert query failed";
                     return false;
                 }
@@ -49,7 +49,7 @@
                 echo "Download image failed";
                 return false;
             }
-            if (!$this -> insert_image_data($unsplash_url, $image_url, $path, $filename, $location, $description)) {
+            if (!$this -> insert_image_data($unsplash_url, $path, $filename, $location, $description)) {
                 echo "Insert query failed";
                 return false;
             }
