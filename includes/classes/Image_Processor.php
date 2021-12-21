@@ -40,7 +40,7 @@
                 return true;
             }
             $filename = $random_id . "." . $file_type;
-            $path = "var/www/html/assets/images/" . $filename;
+            $path = "/var/www/html/assets/images/" . $filename;
             $this -> download_file($url, $path);
             if (!file_exists($path)) {
                 echo "Download image failed";
@@ -71,10 +71,10 @@
         public function download_file($url, $path) {
             $curl = curl_init($url);
             $file_pointer = fopen($path, 'wb');
-            curl_setopt($curl, CURLOPT_FILE, $file_pointer);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
             curl_setopt($curl, CURLOPT_HEADER, 0);
+            curl_setopt($curl, CURLOPT_FILE, $file_pointer);
             curl_exec($curl);
             curl_close($curl);
             fclose($file_pointer);
