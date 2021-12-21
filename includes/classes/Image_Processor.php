@@ -12,7 +12,6 @@
 
         public function upload($image_upload_data) {
             $output_file_directory = "assets/images/";
-            $image_data = $image_upload_data -> image_data;            
             $url = $image_upload_data -> url;
             $id = uniqid();
             $extension = pathinfo($url, PATHINFO_EXTENSION);
