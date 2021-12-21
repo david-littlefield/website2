@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portfolio</title>
     <link rel="shortcut icon" href="#">
-    <link href="../assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
-
 <body class="vsc-initialized">
-
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -44,5 +40,11 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <small>Recent Work</small>
+                </h1>
+            </div>
+        </div>
