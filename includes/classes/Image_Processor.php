@@ -13,17 +13,12 @@
             $random_id = uniqid();
             $unsplash_url = $upload_data -> unsplash_url;
             $image_url = $unsplash_url . "/download";
-
-            echo $unsplash_url . "\n" . $image_url . "\n";
-
             $location = $upload_data -> location;
             $description = $upload_data -> description;
             $file_type = pathinfo($image_url, PATHINFO_EXTENSION);
-            echo $file_type . "\n";
             $headers = get_headers($image_url, true);
             if (!$this -> is_valid_type($file_type)) {
                 $content_type = $this -> resolve_content_type($headers);
-                echo $content_type . "\n";
                 if (!$this -> is_valid_type($content_type)) {
                     echo "Invalid file type";
                     return false;
@@ -88,9 +83,9 @@
             return in_array($lowercased, $this -> allowed_types);
         }
 
-        private function insert_image_data($unsplash, $url, $path, $filename, $location, $description) {
-            $query = $this -> connection -> prepare("INSERT INTO images (unsplash_url, url, path, filename, location, description) VALUES (:unsplash_url, :url, :path, :filename, :location, :description)");
-            $query->bindParam(":unsplash_url", $unsplash);
+        private function insert_image_data($unsplash_url, $url, $path, $filename, $location, $description) {
+            $query = $this -> connection -> prepare("INSERT INTO images (unsplash_url, path, filename, location, description) VALUES (:unsplash_url, :path, :filename, :location, :description)");
+            $query->bindParam(":unsplash_url", $unsplash_url);
             $query->bindParam(":path", $path);
             $query->bindParam(":filename", $filename);
             $query->bindParam(":location", $location);
