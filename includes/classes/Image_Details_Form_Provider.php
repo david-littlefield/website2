@@ -1,6 +1,6 @@
 <?php
 
-    class Image_Detail_Form_Provider {
+    class Image_Details_Form_Provider {
 
         private $connection;
 
