@@ -76,6 +76,7 @@
             curl_setopt($curl, CURLOPT_FILE, $file_pointer);
             curl_exec($curl);
             curl_close($curl);
+            var_dump($path);
             var_dump($file_pointer);
             fclose($file_pointer);
         }
