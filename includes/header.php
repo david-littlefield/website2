@@ -29,7 +29,7 @@
                         <a href="upload.php">Upload</a>
                     </li>
                     <li class="active">
-                        <a href="#">Recent</a>
+                        <a href="/">Recent</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
