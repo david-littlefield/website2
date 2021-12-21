@@ -12,13 +12,13 @@
 
         public function upload($image_upload_data) {
             $output_file_directory = "assets/images/";
-            $url = $image_upload_data -> url;
+            $url = $image_upload_data["url"];
             $id = uniqid();
             $extension = pathinfo($url, PATHINFO_EXTENSION);
             $path = $output_file_directory . $id . "." . $extension;
             $filename = $id . "." . $extension;
-            $location = $image_upload_data -> location;
-            $description = $image_upload_data -> description;
+            $location = $image_upload_data["location"];
+            $description = $image_upload_data["description"];
             $is_valid_data = $this -> process_data($image_data, $path);
             if (!$is_valid_data) {
                 return false;
