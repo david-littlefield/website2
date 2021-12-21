@@ -17,8 +17,12 @@
             $location = $upload_data -> location;
             $description = $upload_data -> description;
             $file_type = pathinfo($url, PATHINFO_EXTENSION);
+
+            $headers = get_headers($url, true);
+            $this -> resolve_source_url($headers);
+
             if (!$this -> is_valid_type($file_type)) {
-                $content_type = $this -> resolve_content_type($url);
+                $content_type = $this -> resolve_content_type($headers);
                 if (!$this -> is_valid_type($content_type)) {
                     echo "Invalid file type";
                     return false;
@@ -48,14 +52,21 @@
             return true;
         }
 
-        public function resolve_content_type($url) {
-            $headers = get_headers($url, true);
-            var_dump($headers);
+        public function resolve_content_type($headers) {
             $content_type = end($headers["Content-Type"]);
             $content_type = explode("/", $content_type);
             $content_type = end($content_type);
             $content_type = strtolower($content_type);
             return $content_type;
+        }
+
+        public function resolve_source_url($headers) {
+            $source_url = end($headers["Location"]);
+            var_dump($source_url);
+            #$content_type = explode("/", $content_type);
+            #$content_type = end($content_type);
+            #$content_type = strtolower($content_type);
+            #return $content_type;
         }
     
         private function is_valid_type($image_type) {
