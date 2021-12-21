@@ -1,7 +1,8 @@
 <?php 
-    require_once("includes/header.php"); 
+    require_once("includes/configuration.php");
     require_once("includes/classes/Image_Upload_Data.php"); 
     require_once("includes/classes/Image_Processor.php"); 
+    require_once("includes/header.php"); 
 
     if (!isset($_POST["upload_button"])) {
         echo "No file sent to page.";
