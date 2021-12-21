@@ -17,10 +17,7 @@
             $location = $upload_data -> location;
             $description = $upload_data -> description;
             $file_type = pathinfo($url, PATHINFO_EXTENSION);
-
             $headers = get_headers($url, true);
-            $this -> resolve_source_url($headers);
-
             if (!$this -> is_valid_type($file_type)) {
                 $content_type = $this -> resolve_content_type($headers);
                 if (!$this -> is_valid_type($content_type)) {
@@ -29,7 +26,8 @@
                 }
                 $filename = $random_id . "." . $content_type;
                 $path = "assets/images/" . $filename;
-                if (!file_put_contents($path, file_get_contents($url))) {
+                $source_url = $this -> resolve_source_url($headers);
+                if (!file_put_contents($path, file_get_contents($source_url))) {
                     echo "Download image failed";
                     return false;
                 }
@@ -52,21 +50,17 @@
             return true;
         }
 
-        public function resolve_content_type($input) {
-            $content_type = end($input["Content-Type"]);
+        public function resolve_content_type($headers) {
+            $content_type = end($headers["Content-Type"]);
             $content_type = explode("/", $content_type);
             $content_type = end($content_type);
             $content_type = strtolower($content_type);
             return $content_type;
         }
 
-        public function resolve_source_url($input) {
-            $source_url = end($input["Location"]);
-            var_dump($source_url);
-            #$content_type = explode("/", $content_type);
-            #$content_type = end($content_type);
-            #$content_type = strtolower($content_type);
-            #return $content_type;
+        public function resolve_source_url($headers) {
+            $source_url = $headers["Location"];
+            return $source_url;
         }
     
         private function is_valid_type($image_type) {
