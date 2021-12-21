@@ -14,7 +14,7 @@
         "",
         "",
         $_POST["location_input"], 
-        $_POST["description_input"], 
+        $_POST["description_input"]
     );
 
     #$image_processor = new Image_Processor($connection);
