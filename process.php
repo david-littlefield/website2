@@ -11,7 +11,6 @@
 
     $image_upload_data = new Image_Upload_Data(
         $_POST["unsplash_input"],
-        $_POST["image_input"], 
         "",
         "",
         $_POST["location_input"], 
