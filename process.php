@@ -12,36 +12,25 @@
             $_POST["location_input"],
             $_POST["description_input"]
         );
-        if ($updated) {
-            header("Location: /");
+        if (!$updated) {
+            echo "Could not update record";
             exit();
         }
+        header("Location: /");
     }
 
     if (isset($_POST["upload_button"])) {
-        # prepare data
-        # download image
-        # create record
-        $image = new Image($connection);
-    }
-
-    if (isset($_POST["upload_button"])) {
-        $image_upload_data = new Image_Upload_Data(
+        $processor = new Processor($connection);
+        $uploaded = $processor -> upload(
             $_POST["unsplash_input"],
-            "",
-            "",
-            $_POST["location_input"], 
+            $_POST["location_input"],
             $_POST["description_input"]
         );
-
-        $image_processor = new Image_Processor($connection);
-        $was_uploaded = $image_processor -> upload($image_upload_data);
-
-        if (!$was_uploaded) {
-            echo "Upload was unsuccessful";
-        } else {
-            #header("Location: index.php");
+        if (!$uploaded) {
+            echo "Could not create record";
+            exit();
         }
+        header("Location: /");
     }
 
     if (isset($_POST["delete_button"])){
