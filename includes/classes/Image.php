@@ -5,19 +5,42 @@
         private $connection;
         private $data;
 
-        public function __construct($connection, $data, $id) {
+        public function __construct($connection, $data = [], $id = "") {
             $this -> connection = $connection;
-            if (is_array($data)) {
-                $this -> data = $data;
-            } else {
-                $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
-                $query -> bindParam(":id", $id);
-                $query -> execute();
-                $this -> data = $query -> fetch (PDO::FETCH_ASSOC);
+            if (!empty($data)) {
+                $this -> load_record($data);
+            }
+            elseif (!empty($id)) {
+                $this -> read_record($id);
             }
         }
 
-        public function delete($id) {
+        public function load_record($data) {
+            if (is_array($data)) {
+               $this -> data = $data;
+            }
+        }
+
+        public function read_record($id) {
+            $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
+            $query -> bindParam(":id", $id);
+            $query -> execute();
+            $data = $query -> fetch (PDO::FETCH_ASSOC);
+            $this -> data = $data;
+        }
+
+        public function update_record($unsplash_url, $location, $description) {
+            $query = $this -> connection -> prepare("UPDATE images SET unsplash_url = :unsplash_url, path = :path, filename = :filename, location = :location, description = :description  WHERE id = :id)");
+            $query -> bindParam(":unsplash_url", $unsplash_url);
+            $query -> bindParam(":path", $this -> path);
+            $query -> bindParam(":filename", $this -> filename);
+            $query -> bindParam(":location", $location);
+            $query -> bindParam(":description", $description);
+            $query -> bindParam(":id", $this -> $id);
+            return $query -> execute();
+        }
+
+        public function delete_record($id) {
             $query = $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
             $query -> bindParam(":id", $id);
             return $query -> execute();
