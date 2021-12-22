@@ -1,9 +1,7 @@
 <?php 
-
-    require_once("includes/classes/Image_Details_Form_Provider.php");
+    require_once("includes/classes/Form_Provider.php");
     require_once("includes/configuration.php");  
     require_once("includes/header.php"); 
-
 ?>
 
         <div class="row">
@@ -15,13 +13,11 @@
         </div>
         <div class="row">
             <?php
-                $form_provider = new Image_Details_Form_Provider($connection);
+                $form_provider = new Form_Provider($connection);
                 echo $form_provider -> create_upload_form(); 
             ?>
         </div>
 
 <?php 
-
     require_once("includes/footer.php"); 
-
 ?>

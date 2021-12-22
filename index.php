@@ -1,9 +1,7 @@
 <?php
-
+    require_once("includes/classes/Grid.php");
     require_once("includes/configuration.php");
-    require_once("includes/classes/Image_Grid.php");
     require_once("includes/header.php");
-
 ?>
 
             <div class="row">
@@ -14,8 +12,8 @@
                 </div>
             </div>
             <?php
-                $image_grid = new Image_Grid($connection);
-                echo $image_grid -> create();
+                $grid = new Grid($connection);
+                echo $grid -> create();
             ?>
         </div>
 

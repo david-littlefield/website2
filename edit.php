@@ -1,8 +1,8 @@
 <?php 
     require_once("includes/classes/Image.php");
     require_once("includes/classes/Image_Upload_Data.php");
-    require_once("includes/classes/Image_Grid_Item.php");
-    require_once("includes/classes/Image_Details_Form_Provider.php");
+    require_once("includes/classes/Grid_Item.php");
+    require_once("includes/classes/Form_Provider.php");
     require_once("includes/configuration.php");
     require_once("includes/header.php");
 
@@ -11,31 +11,33 @@
         exit();
     }
 
-$image = new Image($connection, "", $_GET["id"]);
+    $image = new Image($connection, "", $_GET["id"]);
 
-$details_message = "";
+    $details_message = "";
 
-if (isset($_POST["save_button"])) {
-    $image_upload_data = new Image_Upload_Data(
-        $_POST["unsplash_input"],
-        $_POST["path_input"],
-        $_POST["filename_input"],
-        $_POST["location_input"],
-        $_POST["description_input"]
-    );
-    if ($image_upload_data -> update_details($connection, $image -> get_id())) {
-        $details_message = "<div class='alert alert-success'>
-                                <strong>SUCCESS!</strong> Details updated successfully!
-                            </div>";
-        $image = new Image($connection, $_GET["id"]);
+    var_dump($_POST);
 
+    if (isset($_POST["save_button"])) {
+        $image_upload_data = new Image_Upload_Data(
+            $_POST["unsplash_input"],
+            $_POST["path_input"],
+            $_POST["filename_input"],
+            $_POST["location_input"],
+            $_POST["description_input"]
+        );
+        if ($image_upload_data -> update_details($connection, $image -> get_id())) {
+            $details_message = "<div class='alert alert-success'>
+                                    <strong>SUCCESS!</strong> Details updated successfully!
+                                </div>";
+            $image = new Image($connection, $_GET["id"]);
+
+        }
+        else {
+            $details_message = "<div class='alert alert-danger'>
+                                    <strong>ERROR!</strong> Could not load image details
+                                </div>";
+        }
     }
-    else {
-        $details_message = "<div class='alert alert-danger'>
-                                <strong>ERROR!</strong> Could not load image details
-                            </div>";
-    }
-}
 
 ?>
 
@@ -59,7 +61,7 @@ if (isset($_POST["save_button"])) {
             </div>
             <div class='col-md-6 portfolio-item'>
                 <?php
-                    $form_provider = new Image_Details_Form_Provider($connection);
+                    $form_provider = new Form_Provider($connection);
                     echo $form_provider -> create_edit_form($image);
                 ?>
             </div>
@@ -67,7 +69,5 @@ if (isset($_POST["save_button"])) {
     </div>
 
 <?php 
-
     require_once("includes/footer.php");
-
 ?>
