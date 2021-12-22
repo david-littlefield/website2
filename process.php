@@ -9,7 +9,7 @@
     $image = new Image($connection, "", $_GET["id"]);
 
     if (isset($_POST["delete_button"])) {
-        if (!$image -> delete()) {
+        if (!$image -> delete($image -> get_id())) {
             echo "Could not delete image";
             exit();
         }
@@ -30,7 +30,7 @@
     if (!$was_uploaded) {
         echo "Upload was unsuccessful";
     } else {
-        header("Location: https://www.squidproquo.io/");
+        header("Location: /");
     }
 
     require_once("includes/footer.php"); 
