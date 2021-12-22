@@ -11,6 +11,7 @@
                 $this -> load_record($data);
             }
             elseif (!empty($id)) {
+                $this -> data["id"] = $id;
                 $this -> read_record($id);
             }
         }
@@ -21,9 +22,9 @@
             }
         }
 
-        public function read_record($id) {
+        public function read_record() {
             $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
-            $query -> bindParam(":id", $id);
+            $query -> bindParam(":id", $this -> id);
             $query -> execute();
             $data = $query -> fetch (PDO::FETCH_ASSOC);
             $this -> data = $data;
@@ -40,9 +41,9 @@
             return $query -> execute();
         }
 
-        public function delete_record($id) {
+        public function delete_record() {
             $query = $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
-            $query -> bindParam(":id", $id);
+            $query -> bindParam(":id", $this -> id);
             return $query -> execute();
         }
 
