@@ -6,11 +6,6 @@
     require_once("includes/configuration.php");
     require_once("includes/header.php"); 
 
-    if (!isset($_POST["upload_button"])) {
-        echo "No file sent to page.";
-        exit();
-    }
-
     $image = new Image($connection, "", $_GET["id"]);
 
     if (isset($_POST["delete_button"])) {
