@@ -31,9 +31,6 @@
                     <li>
                         <a href="upload.php">Upload</a>
                     </li>
-                    <li>
-                        <a href="edit.php">Edit</a>
-                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
