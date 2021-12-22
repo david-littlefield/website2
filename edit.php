@@ -14,17 +14,7 @@
     $image = new Image($connection, "", $_GET["id"]);
 
     $details_message = "";
-
-    var_dump($_POST);
-
-    if (isset($_POST["save_button"])) {
-        echo "save";
-    }
-
-    if (isset($_POST["delete_button"])){
-        echo "delete";
-    }
-
+    
     #if (isset($_POST["save_button"])) {
     #    $image_upload_data = new Image_Upload_Data(
     #        $_POST["unsplash_input"],

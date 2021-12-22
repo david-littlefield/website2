@@ -10,6 +10,14 @@
 
     var_dump($image);
 
+    if (isset($_POST["save_button"])) {
+        echo "save";
+    }
+
+    if (isset($_POST["delete_button"])){
+        echo "delete";
+    }
+
     if (isset($_POST["delete_button"])) {
         $id = $image -> get_id();
         echo "\n" . $id . "\n";
