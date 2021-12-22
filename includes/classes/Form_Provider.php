@@ -68,21 +68,15 @@
         }
 
         private function create_upload_button() {
-            return "<div class='form-group'>
-                        <button type='submit' class='btn btn-primary' name='upload_button'>Upload</button>
-                    </div>";
+            return "<button type='submit' class='btn btn-primary' name='upload_button'>Upload</button>";
         }
 
         private function create_save_button() {
-            return "<div class='form-group'>
-                        <button type='submit' class='btn btn-primary' name='save_button'>Save</button>
-                    </div>";
+            return "<button type='submit' class='btn btn-primary' name='save_button'>Save</button>";
         }
 
         private function create_delete_button() {
-            return "<div class='form-group'>
-                        <button type='button' class='btn btn-danger' name='delete_button'>Delete</button>
-                    </div>";
+            return "<button type='button' class='btn btn-danger' name='delete_button'>Delete</button>";
         }
 
     }
