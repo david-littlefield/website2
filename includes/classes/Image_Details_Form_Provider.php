@@ -23,11 +23,15 @@
 
         public function create_edit_form($image) {
             $unsplash_url_text_field = $this -> create_unsplash_url_text_field($image -> get_unsplash_url());
+            $path_text_field = $this -> create_path_text_field($image -> get_path());
+            $filename_text_field = $this -> create_filename_text_field($image -> get_filename());
             $location_text_field = $this -> create_location_text_field($image -> get_location());
             $description_text_field = $this -> create_description_text_field($image -> get_description());
             $save_button = $this -> create_save_button();
             return "<form action='process.php' method='POST' enctype='multipart/form-data'>
                         $unsplash_url_text_field
+                        $path_text_field
+                        $filename_text_field
                         $location_text_field
                         $description_text_field
                         $save_button
@@ -41,6 +45,18 @@
             return "<div class='form-group'>
                     <input class='form-control' type='text' placeholder='Unsplash URL' name='unsplash_input' value='$value'> 
                 </div>";
+        }
+
+        public function create_path_text_field($value) {
+            return "<div class='form-group'>
+                        <input class='form-control' type='text' name='path_input' value='$value' disabled> 
+                    </div>";
+        }
+
+        public function create_filename_text_field($value) {
+            return "<div class='form-group'>
+                        <input class='form-control' type='text' name='filename_input' value='$value' disabled> 
+                    </div>";
         }
 
         public function create_location_text_field($value) {
@@ -57,7 +73,7 @@
                 $value = "";
             }
             return "<div class='form-group'>
-                        <textarea class='form-control' placeholder='Description' name='description_input' rows='5' style='resize: none'>$value</textarea> 
+                        <textarea class='form-control' placeholder='Description' name='description_input' rows='3' style='resize: none'>$value</textarea> 
                     </div>";
         }
 
