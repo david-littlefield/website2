@@ -18,24 +18,26 @@
             exit();
         }
         echo "\n" . "done" . "\n";
-        header("Location: /index.php");
+        #header("Location: /index.php");
     }
 
-    $image_upload_data = new Image_Upload_Data(
-        $_POST["unsplash_input"],
-        "",
-        "",
-        $_POST["location_input"], 
-        $_POST["description_input"]
-    );
+    if (isset($_POST["upload_button"])) {
+        $image_upload_data = new Image_Upload_Data(
+            $_POST["unsplash_input"],
+            "",
+            "",
+            $_POST["location_input"], 
+            $_POST["description_input"]
+        );
 
-    $image_processor = new Image_Processor($connection);
-    $was_uploaded = $image_processor -> upload($image_upload_data);
+        $image_processor = new Image_Processor($connection);
+        $was_uploaded = $image_processor -> upload($image_upload_data);
 
-    if (!$was_uploaded) {
-        echo "Upload was unsuccessful";
-    } else {
-        header("Location: index.php");
+        if (!$was_uploaded) {
+            echo "Upload was unsuccessful";
+        } else {
+            #header("Location: index.php");
+        }
     }
 
     require_once("includes/footer.php"); 
