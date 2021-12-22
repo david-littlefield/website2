@@ -13,7 +13,7 @@
                 $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
                 $query -> bindParam(":id", $input_id);
                 $query -> execute();
-                $image_data = $query -> fetch (PDO::FETCH_ASSOC);
+                $this -> image_data = $query -> fetch (PDO::FETCH_ASSOC);
             }
         }
 

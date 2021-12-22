@@ -21,6 +21,19 @@
                     </form>";
         }
 
+        public function create_edit_form($image) {
+            $unsplash_url_text_field = $this -> create_unsplash_url_text_field($image -> get_unsplash_url());
+            $location_text_field = $this -> create_location_text_field($image -> get_location());
+            $description_text_field = $this -> create_description_text_field($image -> get_description());
+            $save_button = $this -> create_save_button();
+            return "<form action='process.php' method='POST' enctype='multipart/form-data'>
+                        $unsplash_url_text_field
+                        $location_text_field
+                        $description_text_field
+                        $save_button
+                    </form>";
+        }
+
         public function create_unsplash_url_text_field($value) {
             if ($value == null) {
                 $value = "";
@@ -50,6 +63,10 @@
 
         private function create_upload_button() {
             return "<button type='submit' class='btn btn-primary' name='upload_button'>Upload</button>";
+        }
+
+        private function create_save_button() {
+            return "<button type='submit' class='btn btn-primary' name='save_button'>Save</button>";
         }
 
     }
