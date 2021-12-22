@@ -11,11 +11,14 @@
     var_dump($image);
 
     if (isset($_POST["delete_button"])) {
-        if (!$image -> delete($image -> get_id())) {
+        $id = $image -> get_id();
+        echo "\n" . $id . "\n";
+        if (!$image -> delete($id)) {
             echo "Could not delete image";
             exit();
         }
-        header("Location: index.php");
+        echo "\n" . "done" . "\n";
+        header("Location: /index.php");
     }
 
     $image_upload_data = new Image_Upload_Data(
