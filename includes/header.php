@@ -26,10 +26,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
+                        <a href="/">Recent</a>
+                    </li>
+                    <li>
                         <a href="upload.php">Upload</a>
                     </li>
                     <li>
-                        <a href="/">Recent</a>
+                        <a href="edit.php">Edit</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
