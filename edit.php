@@ -3,6 +3,7 @@
     require_once("includes/classes/Image_Upload_Data.php");
     require_once("includes/classes/Image_Grid_Item.php");
     require_once("includes/classes/Image_Details_Form_Provider.php");
+    require_once("includes/configuration.php");
     require_once("includes/header.php");
 
     if (!isset($_GET["id"])) {
