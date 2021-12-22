@@ -57,7 +57,7 @@
                 $value = "";
             }
             return "<div class='form-group'>
-                        <textarea class='form-control' placeholder='Description' name='description_input' rows='3' resize='none'>$value</textarea> 
+                        <textarea class='form-control' placeholder='Description' name='description_input' rows='3' style='resize: none'>$value</textarea> 
                     </div>";
         }
 
