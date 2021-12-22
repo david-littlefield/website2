@@ -9,11 +9,14 @@
 
     if (isset($_POST["save_button"])) {
         var_dump($_POST);
-        $image -> update_record(
+        $updated = $image -> update_record(
             $_POST["unsplash_input"],
             $_POST["location_input"],
             $_POST["description_input"]
         );
+        if ($updated) {
+            header("Location: /");
+        }
     }
 
     if (isset($_POST["delete_button"])){
