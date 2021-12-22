@@ -22,12 +22,13 @@
         }
 
         public function create_edit_form($image) {
+            $id = $image -> get_id();
             $unsplash_url_text_field = $this -> create_unsplash_url_text_field($image -> get_unsplash_url());
             $location_text_field = $this -> create_location_text_field($image -> get_location());
             $description_text_field = $this -> create_description_text_field($image -> get_description());
             $save_button = $this -> create_save_button();
             $delete_button = $this -> create_delete_button();
-            return "<form action='process.php' method='POST' enctype='multipart/form-data'>
+            return "<form action='process.php?id=$id' method='POST' enctype='multipart/form-data'>
                         $unsplash_url_text_field
                         $location_text_field
                         $description_text_field
