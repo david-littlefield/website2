@@ -18,11 +18,9 @@
         }
 
         public function delete($id) {
-            $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
+            $query = $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
             $query -> bindParam(":id", $id);
-            $result = $query -> execute();
-            echo $result;
-            return $result;
+            return $query -> execute();
         }
 
         public function get_id() {
