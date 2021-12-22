@@ -40,6 +40,7 @@
         public function create_unsplash_url_text_field($value) {
             if ($value == null) {
                 $value = "";
+                $readonly = "";
             } else {
                 $readonly = "readonly";
             }
