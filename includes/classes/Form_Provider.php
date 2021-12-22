@@ -23,7 +23,7 @@
 
         public function create_edit_form($image) {
             $id = $image -> get_id();
-            $unsplash_url_text_field = $this -> create_unsplash_url_text_field($image -> get_unsplash_url());
+            $unsplash_url_text_field = $this -> create_unsplash_url_text_field($image -> get_unsplash_url(), true);
             $location_text_field = $this -> create_location_text_field($image -> get_location());
             $description_text_field = $this -> create_description_text_field($image -> get_description());
             $save_button = $this -> create_save_button();
@@ -37,13 +37,16 @@
                     </form>";
         }
 
-        public function create_unsplash_url_text_field($value) {
+        public function create_unsplash_url_text_field($value, $disabled) {
             if ($value == null) {
                 $value = "";
             }
+            if ($disabled) {
+                $disabled = "disabled";
+            }
             return "<div class='form-group'>
                     <label>Unsplash URL:</label>
-                    <input class='form-control' type='text' placeholder='' name='unsplash_input' value='$value'> 
+                    <input class='form-control' type='text' placeholder='' name='unsplash_input' value='$value' $disabled> 
                 </div>";
         }
 
