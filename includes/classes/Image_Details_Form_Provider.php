@@ -39,7 +39,7 @@
                 $value = "";
             }
             return "<div class='form-group'>
-                    <label>Unsplash URL</label>
+                    <label>Unsplash URL:</label>
                     <input class='form-control' type='text' placeholder='' name='unsplash_input' value='$value'> 
                 </div>";
         }
@@ -49,7 +49,7 @@
                 $value = "";
             }
             return "<div class='form-group'>
-                    <label>Location</label>
+                    <label>Location:</label>
                     <input class='form-control' type='text' placeholder='' name='location_input' value='$value'> 
                 </div>";
         }
@@ -59,8 +59,8 @@
                 $value = "";
             }
             return "<div class='form-group'>
-                        <label>Description</label>
-                        <textarea class='form-control' placeholder='' name='description_input' rows='5' style='resize: none'>$value</textarea> 
+                        <label>Description:</label>
+                        <textarea class='form-control' placeholder='' name='description_input' rows='6' style='resize: none'>$value</textarea> 
                     </div>";
         }
 
