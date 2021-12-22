@@ -24,7 +24,7 @@
 
         public function read_record() {
             $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
-            $query -> bindParam(":id", $this -> id);
+            $query -> bindParam(":id", $this -> data["id"]);
             $query -> execute();
             $data = $query -> fetch (PDO::FETCH_ASSOC);
             $this -> data = $data;
@@ -37,13 +37,13 @@
             $query -> bindParam(":filename", $this -> filename);
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
-            $query -> bindParam(":id", $this -> id);
+            $query -> bindParam(":id", $this -> data["id"]);
             return $query -> execute();
         }
 
         public function delete_record() {
             $query = $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
-            $query -> bindParam(":id", $this -> id);
+            $query -> bindParam(":id", $this -> data["id"]);
             return $query -> execute();
         }
 
