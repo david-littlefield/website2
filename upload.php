@@ -13,7 +13,7 @@
                 </h1>
             </div>
         </div>
-        <div class="column">
+        <div class="row">
             <?php
                 $form_provider = new Image_Details_Form_Provider($connection);
                 echo $form_provider -> create_upload_form(); 
@@ -23,5 +23,5 @@
 <?php 
 
     require_once("includes/footer.php"); 
-    
+
 ?>

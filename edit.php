@@ -38,6 +38,14 @@ if (isset($_POST["save_button"])) {
 }
 ?>
 
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <small>Edit</small>
+        </h1>
+    </div>
+</div>
+
 <div class="container">
     <div class="message">
         <?php
@@ -52,7 +60,7 @@ if (isset($_POST["save_button"])) {
     </div>
     <div class="row">
         <?php
-            $form_provider = new Image_Details_Form_Provider($connection);
+            $form_provider = new Image_Details_Form_Provider($connection, $image);
             echo $form_provider -> create_edit_form();
         ?>
     </div>
