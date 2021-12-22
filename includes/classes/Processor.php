@@ -14,7 +14,7 @@
             $redirect_url = $unsplash_url . "/download";
             $headers = get_headers($redirect_url, true);
             $extension = $this -> parse_extension($headers);
-            if ($this -> is_valid_extension($extension)) {
+            if (!$this -> is_valid_extension($extension)) {
                 echo "Invalid extension";
                 return false;
             }
@@ -42,6 +42,11 @@
             return $extension;
         }
 
+        private function is_valid_extension($extension) {
+            $lowercased = strtolower($extension);
+            return in_array($lowercased, $this -> valid_extensions);
+        }
+
         public function parse_url($headers) {
             $url = $headers["Location"];
             return $url;
@@ -59,10 +64,7 @@
             fclose($file_pointer);
         }
     
-        private function is_valid_extension($extension) {
-            $lowercased = strtolower($extension);
-            return in_array($lowercased, $this -> valid_extensions);
-        }
+
 
     }
 
