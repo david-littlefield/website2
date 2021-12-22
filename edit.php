@@ -37,14 +37,6 @@ if (isset($_POST["save_button"])) {
     }
 }
 
-if (isset($_POST["delete_button"])) {
-    if (!$image -> delete()) {
-        echo "Could not delete image";
-        exit();
-    }
-    header("Location: https://www.squidproquo.io/");
-}
-
 ?>
 
     <div class="row">
