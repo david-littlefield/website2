@@ -3,42 +3,48 @@
     class Image {
 
         private $connection;
-        private $image_data;
+        private $data;
 
-        public function __construct($connection, $input_data, $input_id) {
+        public function __construct($connection, $data, $id) {
             $this -> connection = $connection;
-            if (is_array($input_data)) {
-                $this -> image_data = $input_data;
+            if (is_array($data)) {
+                $this -> data = $data;
             } else {
                 $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
-                $query -> bindParam(":id", $input_id);
+                $query -> bindParam(":id", $id);
                 $query -> execute();
-                $this -> image_data = $query -> fetch (PDO::FETCH_ASSOC);
+                $this -> data = $query -> fetch (PDO::FETCH_ASSOC);
             }
         }
 
+        public function delete($id) {
+            $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
+            $query -> bindParam(":id", $id);
+            return $query -> execute();
+        }
+
         public function get_id() {
-            return $this -> image_data["id"];
+            return $this -> data["id"];
         }
 
         public function get_unsplash_url() {
-            return $this -> image_data["unsplash_url"];
+            return $this -> data["unsplash_url"];
         }
         
         public function get_path() {
-            return $this -> image_data["path"];
+            return $this -> data["path"];
         }
         
         public function get_filename() {
-            return $this -> image_data["filename"];
+            return $this -> data["filename"];
         }
         
         public function get_location() {
-            return $this -> image_data["location"];
+            return $this -> data["location"];
         }
         
         public function get_description() {
-            return $this -> image_data["description"];
+            return $this -> data["description"];
         }
 
     }
