@@ -47,7 +47,7 @@
             return $url;
         }
 
-        public function download_image($url, $path) {
+        public function download_file($url, $path) {
             $curl = curl_init($url);
             $file_pointer = fopen($path, 'w+');
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
