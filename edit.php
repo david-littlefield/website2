@@ -1,6 +1,5 @@
 <?php 
     require_once("includes/classes/Image.php");
-    require_once("includes/classes/Image_Upload_Data.php");
     require_once("includes/classes/Grid_Item.php");
     require_once("includes/classes/Form_Provider.php");
     require_once("includes/configuration.php");
@@ -12,9 +11,6 @@
     }
 
     $image = new Image($connection, "", $_GET["id"]);
-
-    $details_message = "";
-    
 ?>
 
     <div class="row">
@@ -26,11 +22,6 @@
     </div>
 
     <div class="container">
-        <div class="message">
-            <?php
-                echo $details_message
-            ?>
-        </div>
         <div class="row">
             <div class='col-md-6 portfolio-item'>
                 <img class='img-responsive' loading='eager' src='<?php echo $image -> get_path(); ?>' srcset_placeholder='media/555/<?php echo $image -> get_filename(); ?>  1024w, media/555/<?php echo $image -> get_filename(); ?> 640w, media/225/<?php $image -> get_filename(); ?>  320w' width='555' height='370'>
