@@ -37,7 +37,7 @@
             $query -> bindParam(":filename", $this -> filename);
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
-            $query -> bindParam(":id", $this -> $id);
+            $query -> bindParam(":id", $this -> id);
             return $query -> execute();
         }
 
