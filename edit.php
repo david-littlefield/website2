@@ -38,12 +38,11 @@ if (isset($_POST["save_button"])) {
 }
 ?>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    <small>Edit</small>
-                </h1>
-            </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <small>Edit</small>
+            </h1>
         </div>
     </div>
 
@@ -69,6 +68,6 @@ if (isset($_POST["save_button"])) {
 
 <?php 
 
-    require_once("assets/includes/footer.php");
+    require_once("includes/footer.php");
 
 ?>
