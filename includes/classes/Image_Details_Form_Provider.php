@@ -75,7 +75,7 @@
         }
 
         private function create_delete_button() {
-            return "<button type='button' class='btn btn-danger' name='delete_button'>Delete</button>";
+            return "<button type='submit' class='btn btn-danger' name='delete_button'>Delete</button>";
         }
 
     }
