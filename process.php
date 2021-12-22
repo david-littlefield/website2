@@ -9,10 +9,8 @@
     $image = new Image($connection, "", $_GET["id"]);
 
     if (isset($_POST["save_button"])) {
-        $image.update(
+        $image.update_record(
             $_POST["unsplash_input"],
-            $_POST["path_input"],
-            $_POST["filename_input"],
             $_POST["location_input"],
             $_POST["description_input"]
         );
