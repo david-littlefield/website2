@@ -13,7 +13,7 @@
             echo "Could not delete image";
             exit();
         }
-        header("Location: /");
+        header("Location: index.php");
     }
 
     $image_upload_data = new Image_Upload_Data(
@@ -30,7 +30,7 @@
     if (!$was_uploaded) {
         echo "Upload was unsuccessful";
     } else {
-        header("Location: /");
+        header("Location: index.php");
     }
 
     require_once("includes/footer.php"); 
