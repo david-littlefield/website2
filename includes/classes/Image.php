@@ -30,7 +30,7 @@
         }
 
         public function update_record($unsplash_url, $location, $description) {
-            $query = $this -> connection -> prepare("UPDATE images SET unsplash_url = :unsplash_url, path = :path, filename = :filename, location = :location, description = :description  WHERE id = :id)");
+            $query = $this -> connection -> prepare("UPDATE images SET unsplash_url = :unsplash_url, path = :path, filename = :filename, location = :location, description = :description WHERE id = :id");
             $query -> bindParam(":unsplash_url", $unsplash_url);
             $query -> bindParam(":path", $this -> path);
             $query -> bindParam(":filename", $this -> filename);
