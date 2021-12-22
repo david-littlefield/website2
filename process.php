@@ -4,7 +4,9 @@
     require_once("includes/configuration.php");
     require_once("includes/header.php"); 
 
-    $image = new Image($connection, "", $_GET["id"]);
+    if (isset($_GET["id"])) {
+        $image = new Image($connection, "", $_GET["id"]);
+    }
 
     if (isset($_POST["save_button"])) {
         $updated = $image -> update_record(
