@@ -41,11 +41,11 @@
             if ($value == null) {
                 $value = "";
             } else {
-                $disabled = "disabled";
+                $readonly = "readonly";
             }
             return "<div class='form-group'>
                     <label>Unsplash URL:</label>
-                    <input class='form-control' type='text' placeholder='' name='unsplash_input' value='$value' $disabled> 
+                    <input class='form-control' type='text' placeholder='' name='unsplash_input' value='$value' readonly='$readonly'> 
                 </div>";
         }
 
