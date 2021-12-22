@@ -1,5 +1,4 @@
 <?php 
-
     require_once("includes/classes/Image_Upload_Data.php"); 
     require_once("includes/classes/Image_Processor.php"); 
     require_once("includes/classes/Image.php"); 
@@ -10,7 +9,7 @@
 
     if (isset($_POST["save_button"])) {
         var_dump($_POST);
-        $image.update_record(
+        $image -> update_record(
             $_POST["unsplash_input"],
             $_POST["location_input"],
             $_POST["description_input"]
