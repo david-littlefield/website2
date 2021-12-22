@@ -53,10 +53,9 @@ if (isset($_POST["save_button"])) {
             ?>
         </div>
         <div class="row">
-            <?php
-                $image_grid = new Image_Grid_Item($image);
-                echo $image_grid -> create();
-            ?>
+            <div class='col-md-6 portfolio-item'>
+                <img class='img-responsive' loading='eager' src='<?php $image -> get_path(); ?>' srcset_placeholder='media/555/<?php $image -> get_filename(); ?>  1024w, media/555/<?php $image -> get_filename(); ?> 640w, media/225/<?php $image -> get_filename(); ?>  320w' width='555' height='370'>
+            </div>
             <div class='col-md-6 portfolio-item'>
                 <?php
                     $form_provider = new Image_Details_Form_Provider($connection);
