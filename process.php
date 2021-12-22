@@ -8,6 +8,8 @@
 
     $image = new Image($connection, "", $_GET["id"]);
 
+    var_dump($image);
+
     if (isset($_POST["delete_button"])) {
         if (!$image -> delete($image -> get_id())) {
             echo "Could not delete image";
