@@ -53,13 +53,13 @@ if (isset($_POST["save_button"])) {
         ?>
     </div>
     <div class="row">
-        <div class="column">
+        <div class="col">
             <?php
                 $image_grid = new Image_Grid_Item($image);
                 echo $image_grid -> create();
             ?>
         </div>
-        <div class="column">
+        <div class="col">
             <?php
                 $form_provider = new Image_Details_Form_Provider($connection);
                 echo $form_provider -> create_edit_form($image);
