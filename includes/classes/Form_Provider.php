@@ -45,7 +45,7 @@
             }
             return "<div class='form-group'>
                     <label>Unsplash URL:</label>
-                    <input class='form-control' type='text' placeholder='' name='unsplash_input' value='$value' readonly='$readonly'> 
+                    <input class='form-control' type='text' placeholder='' name='unsplash_input' value='$value' $readonly> 
                 </div>";
         }
 
