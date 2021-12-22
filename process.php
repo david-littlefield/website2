@@ -22,22 +22,7 @@
         # prepare data
         # download image
         # create record
-
-    }
-
-    if (isset($_POST["delete_button"])){
-        echo "delete";
-    }
-
-    if (isset($_POST["delete_button"])) {
-        $id = $image -> get_id();
-        echo "\n" . $id . "\n";
-        if (!$image -> delete($id)) {
-            echo "Could not delete image";
-            exit();
-        }
-        echo "\n" . "done" . "\n";
-        #header("Location: /index.php");
+        $image = new Image($connection);
     }
 
     if (isset($_POST["upload_button"])) {
@@ -57,6 +42,21 @@
         } else {
             #header("Location: index.php");
         }
+    }
+
+    if (isset($_POST["delete_button"])){
+        echo "delete";
+    }
+
+    if (isset($_POST["delete_button"])) {
+        $id = $image -> get_id();
+        echo "\n" . $id . "\n";
+        if (!$image -> delete($id)) {
+            echo "Could not delete image";
+            exit();
+        }
+        echo "\n" . "done" . "\n";
+        #header("Location: /index.php");
     }
 
     require_once("includes/footer.php"); 
