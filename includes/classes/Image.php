@@ -22,6 +22,16 @@
             }
         }
 
+        public function create_record($unsplash_url, $location, $description) {
+            $query = $connection -> prepare("UPDATE images SET unsplash_url = :unsplash_url, path = :path, filename = :filename, location =: location, description =: description where id = :id");
+            $query -> bindParam(":unsplash_url", $unsplash_url);
+            $query -> bindParam(":path", $this -> data["path"]);
+            $query -> bindParam(":filename", $this -> data["filename"]);
+            $query -> bindParam(":location", $location);
+            $query -> bindParam(":description", $description);
+            return $query -> execute();
+        }
+
         public function read_record() {
             $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
             $query -> bindParam(":id", $this -> data["id"]);
