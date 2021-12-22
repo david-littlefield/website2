@@ -8,10 +8,14 @@
 
     $image = new Image($connection, "", $_GET["id"]);
 
-    var_dump($image);
-
     if (isset($_POST["save_button"])) {
-        echo "save";
+        $image.update(
+            $_POST["unsplash_input"],
+            $_POST["path_input"],
+            $_POST["filename_input"],
+            $_POST["location_input"],
+            $_POST["description_input"]
+        );
     }
 
     if (isset($_POST["delete_button"])){
