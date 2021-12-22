@@ -2,20 +2,14 @@
 
     class Image_Processor {
 
-        # declares variables
         private $connection;
         private $file_types = array("jpeg", "jpg", "webp");
 
-        # creates image processor object
         public function __construct($connection) {
-
-            # stores connection to database
-            $this -> connection = $connection;
-        
+            $this -> connection = $connection;        
         }
 
         public function upload($data) {
-            
             $unsplash_url = $data -> unsplash_url;
             $image_url = $unsplash_url . "/download";
             $location = $data -> location;
@@ -23,19 +17,18 @@
             $headers = get_headers($image_url, true);
             $file_type = $this -> get_file_type($headers);
             $filename = uniqid() . "." . $file_type;
-            $relative_path = "assets/images/" . $filename;
-            $absolute_path = "/var/www/html/assets/images/" . $filename;
+            $path = "assets/images/" . $filename;
             if (!$this -> is_valid_file_type($file_type)) {
                 echo "Invalid file type";
                 return false;
             }
             $source_url = $this -> get_source_url($headers);
-            $this -> download_image($source_url, $absolute_path);
+            $this -> download_image($source_url, $path);
             if (!file_exists($path)) {
                 echo "Could not download image";
                 return false;
             }
-            if (!$this -> insert_data_into_database($unsplash_url, $relative_path, $filename, $location, $description)) {
+            if (!$this -> insert_data_into_database($unsplash_url, $path, $filename, $location, $description)) {
                 echo "Could not perform insert query";
                 return false;
             }
