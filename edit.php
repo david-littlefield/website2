@@ -15,28 +15,6 @@
 
     $details_message = "";
     
-    #if (isset($_POST["save_button"])) {
-    #    $image_upload_data = new Image_Upload_Data(
-    #        $_POST["unsplash_input"],
-    #        $_POST["path_input"],
-    #        $_POST["filename_input"],
-    #        $_POST["location_input"],
-    #        $_POST["description_input"]
-    #    );
-    #    if ($image_upload_data -> update_details($connection, $image -> get_id())) {
-    #        $details_message = "<div class='alert alert-success'>
-    #                                <strong>SUCCESS!</strong> Details updated successfully!
-    #                            </div>";
-    #        $image = new Image($connection, $_GET["id"]);
-    #
-    #    }
-    #    else {
-    #        $details_message = "<div class='alert alert-danger'>
-    #                                <strong>ERROR!</strong> Could not load image details
-    #                            </div>";
-    #    }
-    #}
-
 ?>
 
     <div class="row">

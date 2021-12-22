@@ -9,6 +9,7 @@
     $image = new Image($connection, "", $_GET["id"]);
 
     if (isset($_POST["save_button"])) {
+        var_dump($_POST);
         $image.update_record(
             $_POST["unsplash_input"],
             $_POST["location_input"],
