@@ -53,7 +53,7 @@ if (isset($_POST["save_button"])) {
     <div class="row">
         <?php
             $form_provider = new Image_Details_Form_Provider($connection);
-            echo $form_provider -> create_edit_details_form();
+            echo $form_provider -> create_edit_form();
         ?>
     </div>
 </div>
