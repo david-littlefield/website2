@@ -7,10 +7,10 @@
 
         public function __construct($connection, $data = [], $id = "") {
             $this -> connection = $connection;
-            if (!empty($data)) {
+            if (!empty($data) && empty($id)) {
                 $this -> load_record($data);
             }
-            elseif (!empty($id)) {
+            elseif (empty($data) && !empty($id)) {
                 $this -> data["id"] = $id;
                 $this -> read_record($id);
             }
@@ -22,11 +22,11 @@
             }
         }
 
-        public function create_record($unsplash_url, $location, $description) {
+        public function create_record($unsplash_url, $path, $filename, $location, $description) {
             $query = $connection -> prepare("UPDATE images SET unsplash_url = :unsplash_url, path = :path, filename = :filename, location =: location, description =: description where id = :id");
             $query -> bindParam(":unsplash_url", $unsplash_url);
-            $query -> bindParam(":path", $this -> data["path"]);
-            $query -> bindParam(":filename", $this -> data["filename"]);
+            $query -> bindParam(":path", $path);
+            $query -> bindParam(":filename", $filename);
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
             return $query -> execute();
