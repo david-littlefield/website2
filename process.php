@@ -1,5 +1,4 @@
 <?php 
-    require_once("includes/classes/Image_Upload_Data.php"); 
     require_once("includes/classes/Image_Processor.php"); 
     require_once("includes/classes/Image.php"); 
     require_once("includes/configuration.php");
@@ -8,7 +7,6 @@
     $image = new Image($connection, "", $_GET["id"]);
 
     if (isset($_POST["save_button"])) {
-        var_dump($_POST);
         $updated = $image -> update_record(
             $_POST["unsplash_input"],
             $_POST["location_input"],
@@ -16,7 +14,15 @@
         );
         if ($updated) {
             header("Location: /");
+            exit();
         }
+    }
+
+    if (isset($_POST["upload_button"])) {
+        # prepare data
+        # download image
+        # create record
+
     }
 
     if (isset($_POST["delete_button"])){
