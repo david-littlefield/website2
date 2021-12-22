@@ -1,5 +1,5 @@
 <?php 
-    require_once("includes/classes/Image_Processor.php"); 
+    require_once("includes/classes/Processor.php"); 
     require_once("includes/classes/Image.php"); 
     require_once("includes/configuration.php");
     require_once("includes/header.php"); 
