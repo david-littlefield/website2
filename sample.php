@@ -93,9 +93,9 @@
     var_dump($sample -> record);
 
     # delete record in database
-    #$sample -> delete_record($id);
-    #$sample -> read_records();
-    #var_dump($sample -> records);
+    $sample -> delete_record($id);
+    $sample -> read_records();
+    var_dump($sample -> records);
 
 
 ?>
