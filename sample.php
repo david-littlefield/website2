@@ -17,8 +17,8 @@
     class Sample {
 
         private $connection;
-        private $records;
-        private $record;
+        public $records;
+        public $record;
 
         public function __construct($connection) {
             $this -> connection = $connection;
@@ -94,8 +94,8 @@
     # delete record in database
     $id = "7";
     $sample -> delete_record($id);
-    #$sample -> read_record($id);
-    #var_dump($sample -> record);
+    $sample -> read_record($id);
+    var_dump($sample -> record);
 
 
 ?>
