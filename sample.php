@@ -94,8 +94,8 @@
     # delete record in database
     $id = "7";
     $sample -> delete_record($id);
-    $sample -> read_record($id);
-    var_dump($sample -> record);
+    #$sample -> read_record($id);
+    #var_dump($sample -> record);
 
 
 ?>
