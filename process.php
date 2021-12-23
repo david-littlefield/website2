@@ -40,14 +40,12 @@
     }
 
     if (isset($_POST["delete_button"])) {
-        $id = $image -> get_id();
-        echo "\n" . $id . "\n";
-        if (!$image -> delete($id)) {
-            echo "Could not delete image";
+        $deleted = $image -> delete_record();
+        if (!$deleted) {
+            echo "Could not delete record";
             exit();
         }
-        echo "\n" . "done" . "\n";
-        #header("Location: /index.php");
+        header("Location: /");
     }
 
     require_once("includes/footer.php"); 

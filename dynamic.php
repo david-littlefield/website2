@@ -53,7 +53,7 @@
                         <div class="col-sm-4 footer-blurb-item">
                             <img class="img-circle" loading="lazy" src="assets/img/tNCH0sKSZbA.jpeg" srcset_placeholder="media/100/tNCH0sKSZbA.jpeg  1024w, media/100/tNCH0sKSZbA.jpeg 640w, media/100/tNCH0sKSZbA.jpeg 320w" width="100" height="100">
                             <h3>My Stuff</h3>
-                            <p>Upon yielding, kind sea subdue very seed sixth them lesser one lesser there earth days were
+                            <p>Upon yielding, kind sea subdue very seed sixth them lesse    r one lesser there earth days were
                                 multiply so sixth gathering fifth that man fowl made.</p>
                             <p><a class="btn btn-primary" href="/">More Stuff</a></p>
                         </div>
