@@ -33,7 +33,7 @@
                         $unsplash_url_text_field
                         $location_text_field
                         $description_text_field
-                        <div class='row'>
+                        <div class='d-flex'>
                             $save_button
                             $cancel_button
                             $delete_button
@@ -79,15 +79,15 @@
         }
 
         private function create_save_button() {
-            return "<button type='submit' class='btn btn-primary p-2' name='save_button'>Save</button>";
+            return "<div class='p-2'><button type='submit' class='btn btn-primary p-2' name='save_button'>Save</button></div>";
         }
 
         private function create_cancel_button() {
-            return "<button type='submit' class='btn btn-secondary p-2' name='cancel_button'>Cancel</button>";
+            return "<div class='p-2'><button type='submit' class='btn btn-secondary p-2' name='cancel_button'>Cancel</button></div>";
         }
 
         private function create_delete_button() {
-            return "<button type='button' class='btn btn-danger ml-auto p-2' name='delete_button'>Delete</button>";
+            return "<div class='ml-auto p-2'><button type='button' class='btn btn-danger ml-auto p2' name='delete_button'>Delete</button></div>";
         }
 
     }
