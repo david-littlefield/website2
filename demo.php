@@ -14,7 +14,7 @@
         echo "Connection Failed: " . $error -> getMessage();
     }
 
-    class Sample {
+    class Demo {
 
         private $connection;
         public $records;
@@ -30,7 +30,7 @@
             $this -> records = $query -> fetchall();
         }
 
-        public function read_record($id) {
+        public function read_record() {
             $query = $this -> connection -> prepare("SELECT * FROM images WHERE id = :id");
             $query -> bindParam(":id", $id);
             $query -> execute();
@@ -45,6 +45,7 @@
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
             $query -> execute();
+            $this -> record["id"] = $this -> $connection -> lastInsertId();
         }
 
         public function update_record($unsplash_url, $location, $description) {
@@ -58,48 +59,36 @@
             $query -> execute();
         }
 
-        public function delete_record($id) {
+        public function delete_record() {
             $query = $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
-            $query -> bindParam(":id", $id);
+            $query -> bindParam(":id", $this -> record["id"]);
             $query -> execute();
         }
 
     }
 
-    # create sample object from sample class
-    $sample = new Sample($connection);
+    # create demo object
+    $demo = new Demo($connection);
 
-    # read records in database
-    $sample -> read_records();
-    echo "The current records:";
-    var_dump($sample -> records);
+    # reads records in database
+    $demo -> read_records();
 
-    # create record in database
+    # creates record in database
     $unsplash_url = "https://unsplash.com/photos/UoqAR2pOxMo";
     $path = "assets/img/UoqAR2pOxMo.jpeg";
     $filename = "UoqAR2pOxMo.jpeg";
     $location = "Da Nang, Vietnam";
     $description = "The Non Nuoc beach is located at the foot of the Marble Mountains and extends over 5 km. This beach has calm waves and crystal clear blue water all year round. You can also eat locally caught fresh fish at one of the restaurants. It is also an ideal place for sports such as surfing, windsurfing, volleyball, etc.";
-    $sample -> create_record($unsplash_url, $path, $filename, $location, $description);
-    $id = $connection -> lastInsertId();
-    $sample -> read_record($id);
-    echo "The new record:";
-    var_dump($sample -> record);
+    $demo -> create_record($unsplash_url, $path, $filename, $location, $description);
 
-    # update record in database
-    $unsplash_url = $sample -> record["unsplash_url"];
-    $location = $sample -> record["location"];
+    # updates record in database
+    $unsplash_url = $demo -> record["unsplash_url"];
+    $location = $demo -> record["location"];
     $description = "Son Tra peninsula is located about 8 km from the city center and has many beautiful beaches such as But beach, Tien Sa beach, Nam beach, Rang beach, Bac beach and Con beach. These beaches are all very beautiful at the foot of mountains with jungle and clear blue sea. Apart from relaxing on the beach and swimming, you can also go into the jungle, visit pagodas, ride a scooter around the peninsula and snorkel.";
-    $sample -> update_record($unsplash_url, $location, $description);
-    $sample -> read_record($id);
-    echo "The updated record:";
-    var_dump($sample -> record);
+    $demo -> update_record($unsplash_url, $location, $description);
 
-    # delete record in database
-    $sample -> delete_record($id);
-    $sample -> read_records();
-    echo "The current records:";
-    var_dump($sample -> records);
+    # deletes record in database
+    $demo -> delete_record();
 
 ?>
 
