@@ -30,9 +30,12 @@
             $query = $this -> connection -> prepare("SELECT * FROM images");
             $query -> execute();
             $records = $query -> fetchall();
-            var_dump($records);
+            echo var_dump($records);
         }
 
     }
+
+    $sample = new Sample($connection);
+    $sample.read_records();
 
 ?>
