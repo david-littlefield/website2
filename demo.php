@@ -73,7 +73,7 @@
     # reads records in database
     $demo -> read_records();
 
-    show_records($demo);
+    display_all_records($demo);
 
     # creates record in database
     $unsplash_url = "https://unsplash.com/photos/UoqAR2pOxMo";
@@ -83,7 +83,7 @@
     $description = "The Non Nuoc beach is located at the foot of the Marble Mountains and extends over 5 km. This beach has calm waves and crystal clear blue water all year round. You can also eat locally caught fresh fish at one of the restaurants. It is also an ideal place for sports such as surfing, windsurfing, volleyball, etc.";
     $demo -> create_record($unsplash_url, $path, $filename, $location, $description);
 
-    show_records($demo);
+    display_all_records($demo);
 
     # updates record in database
     $unsplash_url = $demo -> record["unsplash_url"];
@@ -91,15 +91,15 @@
     $description = "Son Tra peninsula is located about 8 km from the city center and has many beautiful beaches such as But beach, Tien Sa beach, Nam beach, Rang beach, Bac beach and Con beach. These beaches are all very beautiful at the foot of mountains with jungle and clear blue sea. Apart from relaxing on the beach and swimming, you can also go into the jungle, visit pagodas, ride a scooter around the peninsula and snorkel.";
     $demo -> update_record($unsplash_url, $location, $description);
 
-    show_records($demo);
+    display_all_records($demo);
 
     # deletes record in database
     $demo -> delete_record();
 
-    show_records($demo);
+    display_all_records($demo);
 
-    # displays all record in database
-    function show_records($demo) {
+    # displays all records in database
+    function display_all_records($demo) {
         $demo -> read_records();
         var_dump($demo -> records);
     }
