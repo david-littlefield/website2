@@ -83,11 +83,11 @@
         }
 
         private function create_cancel_button() {
-            return "<button type='submit' class='btn btn-outline-dark' name='cancel_button'>Cancel</button>";
+            return "<button type='submit' class='btn btn-default' name='cancel_button'>Cancel</button>";
         }
 
         private function create_delete_button() {
-            return "<button type='button' class='btn btn-danger' name='delete_button'>Delete</button>";
+            return "<button type='button' class='btn btn-danger' name='delete_button' style='float: right !important'>Delete</button>";
         }
 
     }
