@@ -22,9 +22,6 @@
             $path = "assets/img/" . $filename;
             $url = $this -> parse_url($headers);
             $this -> download_file($url, $path);
-
-            echo "extension: $extension, filename: $filename, path: $path, url: $url";
-
             if (!file_exists($path)) {
                 echo "Failed to download image";
                 return false;
