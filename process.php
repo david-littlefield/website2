@@ -35,8 +35,8 @@
         header("Location: /");
     }
 
-    if (isset($_POST["delete_button"])){
-        echo "delete";
+    if (isset($_POST["cancel_button"])){
+        header("Location: /");
     }
 
     if (isset($_POST["delete_button"])) {
