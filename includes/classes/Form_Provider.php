@@ -34,13 +34,9 @@
                         $location_text_field
                         $description_text_field
                         <div class='row'>
-                        <div class='col'>
-                        $save_button
-                        $cancel_button
-                        </div>
-                        <div class='col'>
-                        $delete_button
-                        </div>
+                            $save_button
+                            $cancel_button
+                            $delete_button
                         </div>
                     </form>";
         }
