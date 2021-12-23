@@ -18,7 +18,7 @@
                 echo "Invalid extension";
                 return false;
             }
-            $filename = uniqid() . "." . $extension;
+            $filename = $this -> parse_filename($unsplash_url) . "." . $extension;
             $path = "assets/img/" . $filename;
             $url = $this -> parse_url($headers);
             $this -> download_file($url, $path);
@@ -27,7 +27,7 @@
                 return false;
             }
             $image = new Image($this -> connection);
-            if (!$image.create_record($unsplash_url, $path, $filename, $location, $description)) {
+            if (!$image -> create_record($unsplash_url, $path, $filename, $location, $description)) {
                 echo "Failed to create query";
                 return false;
             }
@@ -40,6 +40,12 @@
             $extension = end($extension);
             $extension = strtolower($extension);
             return $extension;
+        }
+
+        public function parse_filename($unsplash_url) {
+            $filename = explode("/", $unsplash_url);
+            $filename = end($filename);
+            return $filename;
         }
 
         private function is_valid_extension($extension) {
@@ -63,8 +69,6 @@
             curl_close($curl);
             fclose($file_pointer);
         }
-    
-
 
     }
 
