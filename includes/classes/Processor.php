@@ -70,6 +70,10 @@
             fclose($file_pointer);
         }
 
+        public function delete_file($path) {
+            return unlink($path);
+        }
+
     }
 
 ?>
