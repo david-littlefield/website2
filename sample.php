@@ -83,15 +83,13 @@
     $sample -> create_record($unsplash_url, $path, $filename, $location, $description);
     $id = $connection -> lastInsertId();
     $sample -> read_record($id);
-    echo "The new record:";
+    echo "\n\nThe new record:";
     var_dump($sample -> record);
-    echo "\n\n";
-    
+
     # read records in database
     $sample -> read_records();
-    echo "The current records:";
+    echo "\n\nThe current records:";
     var_dump($sample -> records);
-    echo "\n\n";
 
     # update record in database
     $unsplash_url = $sample -> record["unsplash_url"];
@@ -99,16 +97,14 @@
     $description = "Son Tra peninsula is located about 8 km from the city center and has many beautiful beaches such as But beach, Tien Sa beach, Nam beach, Rang beach, Bac beach and Con beach. These beaches are all very beautiful at the foot of mountains with jungle and clear blue sea. Apart from relaxing on the beach and swimming, you can also go into the jungle, visit pagodas, ride a scooter around the peninsula and snorkel.";
     $sample -> update_record($unsplash_url, $location, $description);
     $sample -> read_record($id);
-    echo "The updated record:";
+    echo "\n\nThe updated record:";
     var_dump($sample -> record);
-    echo "\n\n";
 
     # delete record in database
     $sample -> delete_record($id);
     $sample -> read_records();
-    echo "The current records:";
+    echo "\n\nThe current records:";
     var_dump($sample -> records);
-    echo "\n\n";
 
 ?>
 
