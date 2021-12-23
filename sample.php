@@ -75,9 +75,11 @@
 
     # create record in database
     $unsplash_url = "https://unsplash.com/photos/UoqAR2pOxMo";
+    $path = "assets/img/UoqAR2pOxMo.jpeg";
+    $filename = "UoqAR2pOxMo.jpeg";
     $location = "Da Nang, Vietnam";
     $description = "The Non Nuoc beach is located at the foot of the Marble Mountains and extends over 5 km. This beach has calm waves and crystal clear blue water all year round. You can also eat locally caught fresh fish at one of the restaurants. It is also an ideal place for sports such as surfing, windsurfing, volleyball, etc.";
-    $sample -> create_record($unsplash_url, $location, $description);
+    $sample -> create_record($unsplash_url, $path, $filename, $location, $description);
     $id = "7";
     $sample -> read_record($id);
     var_dump($sample -> record);
