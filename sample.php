@@ -46,7 +46,7 @@
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
             $query -> execute();
-            echo $query -> lastInsertId();
+            echo $this -> connection -> lastInsertId();
         }
 
         public function update_record($unsplash_url, $location, $description) {
