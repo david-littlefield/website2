@@ -45,7 +45,7 @@
             $query -> bindParam(":filename", $filename);
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
-            $query -> execute();
+            var_dump($query -> execute());
         }
 
         public function update_record($unsplash_url, $location, $description) {
@@ -81,22 +81,22 @@
     $location = "Da Nang, Vietnam";
     $description = "The Non Nuoc beach is located at the foot of the Marble Mountains and extends over 5 km. This beach has calm waves and crystal clear blue water all year round. You can also eat locally caught fresh fish at one of the restaurants. It is also an ideal place for sports such as surfing, windsurfing, volleyball, etc.";
     $sample -> create_record($unsplash_url, $path, $filename, $location, $description);
-    $id = $sample -> record["id"];
-    $sample -> read_record($id);
-    var_dump($sample -> record);
+    #$id = $sample -> record["id"];
+    #$sample -> read_record($id);
+    #var_dump($sample -> record);
 
     # update record in database
-    $unsplash_url = $sample -> record["unsplash_url"];
-    $location = $sample -> record["location"];
-    $description = "Son Tra peninsula is located about 8 km from the city center and has many beautiful beaches such as But beach, Tien Sa beach, Nam beach, Rang beach, Bac beach and Con beach. These beaches are all very beautiful at the foot of mountains with jungle and clear blue sea. Apart from relaxing on the beach and swimming, you can also go into the jungle, visit pagodas, ride a scooter around the peninsula and snorkel.";
-    $sample -> update_record($unsplash_url, $location, $description);
-    $sample -> read_record($id);
-    var_dump($sample -> record);
+    #$unsplash_url = $sample -> record["unsplash_url"];
+    #$location = $sample -> record["location"];
+    #$description = "Son Tra peninsula is located about 8 km from the city center and has many beautiful beaches such as But beach, Tien Sa beach, Nam beach, Rang beach, Bac beach and Con beach. These beaches are all very beautiful at the foot of mountains with jungle and clear blue sea. Apart from relaxing on the beach and swimming, you can also go into the jungle, visit pagodas, ride a scooter around the peninsula and snorkel.";
+    #$sample -> update_record($unsplash_url, $location, $description);
+    #$sample -> read_record($id);
+    #var_dump($sample -> record);
 
     # delete record in database
-    $sample -> delete_record($id);
-    $sample -> read_records();
-    var_dump($sample -> records);
+    #$sample -> delete_record($id);
+    #$sample -> read_records();
+    #var_dump($sample -> records);
 
 
 ?>
