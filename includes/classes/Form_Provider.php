@@ -34,9 +34,13 @@
                         $location_text_field
                         $description_text_field
                         <div class='d-flex'>
+                        <div class='col'>
                             $save_button
                             $cancel_button
+                            </div>
+                            <div class='col'>
                             $delete_button
+                            </div>
                         </div>
                     </form>";
         }
@@ -79,15 +83,15 @@
         }
 
         private function create_save_button() {
-            return "<button type='submit' class='btn btn-primary p-2' name='save_button'>Save</button>";
+            return "<button type='submit' class='btn btn-primary' name='save_button'>Save</button>";
         }
 
         private function create_cancel_button() {
-            return "<button type='submit' class='btn btn-secondary p-2' name='cancel_button'>Cancel</button>";
+            return "<button type='submit' class='btn btn-outline-secondary' name='cancel_button'>Cancel</button>";
         }
 
         private function create_delete_button() {
-            return "<button type='button' class='btn btn-danger ml-auto p2' name='delete_button'>Delete</button>";
+            return "<button type='button' class='btn btn-danger' name='delete_button'>Delete</button>";
         }
 
     }
