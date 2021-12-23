@@ -34,13 +34,9 @@
                         $location_text_field
                         $description_text_field
                         <div class='d-flex'>
-                        <div class='col'>
                             $save_button
                             $cancel_button
-                            </div>
-                            <div class='col'>
                             $delete_button
-                            </div>
                         </div>
                     </form>";
         }
@@ -87,7 +83,7 @@
         }
 
         private function create_cancel_button() {
-            return "<button type='submit' class='btn btn-outline-secondary' name='cancel_button'>Cancel</button>";
+            return "<button type='submit' class='btn btn-outline-dark' name='cancel_button'>Cancel</button>";
         }
 
         private function create_delete_button() {
