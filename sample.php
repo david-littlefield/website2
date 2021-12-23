@@ -2,10 +2,10 @@
 
     try {
     
-        $database = "website";
-        $host = "198.74.61.19";
-        $username = "littlefd";
-        $password = "StrongPassword1234!";
+        $database = "#database_placeholder#";
+        $host = "#host_placeholder#";
+        $username = "#username_placeholder#";
+        $password = "#password_placeholder#";
 
         $connection = new PDO("mysql:dbname=$database; host=$host", $username, $password);
         $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
@@ -73,7 +73,7 @@
     $sample -> read_records();
     echo "The current records:";
     var_dump($sample -> records);
-    echo "\n\n";
+
     # create record in database
     $unsplash_url = "https://unsplash.com/photos/UoqAR2pOxMo";
     $path = "assets/img/UoqAR2pOxMo.jpeg";
@@ -83,13 +83,8 @@
     $sample -> create_record($unsplash_url, $path, $filename, $location, $description);
     $id = $connection -> lastInsertId();
     $sample -> read_record($id);
-    echo "\n\nThe new record:";
+    echo "The new record:";
     var_dump($sample -> record);
-
-    # read records in database
-    $sample -> read_records();
-    echo "\n\nThe current records:";
-    var_dump($sample -> records);
 
     # update record in database
     $unsplash_url = $sample -> record["unsplash_url"];
@@ -97,13 +92,13 @@
     $description = "Son Tra peninsula is located about 8 km from the city center and has many beautiful beaches such as But beach, Tien Sa beach, Nam beach, Rang beach, Bac beach and Con beach. These beaches are all very beautiful at the foot of mountains with jungle and clear blue sea. Apart from relaxing on the beach and swimming, you can also go into the jungle, visit pagodas, ride a scooter around the peninsula and snorkel.";
     $sample -> update_record($unsplash_url, $location, $description);
     $sample -> read_record($id);
-    echo "\n\nThe updated record:";
+    echo "The updated record:";
     var_dump($sample -> record);
 
     # delete record in database
     $sample -> delete_record($id);
     $sample -> read_records();
-    echo "\n\nThe current records:";
+    echo "The current records:";
     var_dump($sample -> records);
 
 ?>
