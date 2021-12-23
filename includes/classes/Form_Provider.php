@@ -79,15 +79,15 @@
         }
 
         private function create_save_button() {
-            return "<div class='p-2'><button type='submit' class='btn btn-primary p-2' name='save_button'>Save</button></div>";
+            return "<button type='submit' class='btn btn-primary p-2' name='save_button'>Save</button>";
         }
 
         private function create_cancel_button() {
-            return "<div class='p-2'><button type='submit' class='btn btn-secondary p-2' name='cancel_button'>Cancel</button></div>";
+            return "<button type='submit' class='btn btn-secondary p-2' name='cancel_button'>Cancel</button>";
         }
 
         private function create_delete_button() {
-            return "<div class='ml-auto p-2'><button type='button' class='btn btn-danger ml-auto p2' name='delete_button'>Delete</button></div>";
+            return "<button type='button' class='btn btn-danger ml-auto p2' name='delete_button'>Delete</button>";
         }
 
     }
