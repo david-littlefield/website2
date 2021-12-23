@@ -36,6 +36,6 @@
     }
 
     $sample = new Sample($connection);
-    $sample.read_records();
+    $sample -> read_records();
 
 ?>
