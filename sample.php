@@ -45,7 +45,7 @@
             $query -> bindParam(":filename", $filename);
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
-            return $query -> execute();
+            $query -> execute();
         }
 
         public function update_record($unsplash_url, $location, $description) {
@@ -56,13 +56,13 @@
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
             $query -> bindParam(":id", $this -> record["id"]);
-            return $query -> execute();
+            $query -> execute();
         }
 
         public function delete_record($id) {
             $query = $this -> connection -> prepare("DELETE FROM images WHERE id = :id");
             $query -> bindParam(":id", $id);
-            return $query -> execute();
+            $query -> execute();
         }
 
     }
