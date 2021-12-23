@@ -23,7 +23,7 @@
         }
 
         public function create_record($unsplash_url, $path, $filename, $location, $description) {
-            $query = $connection -> prepare("INSERT INTO images (unsplash_url, path, filename, location, description) VALUES (:unsplash_url, :path, :filename, :location, :description)");
+            $query = $this -> connection -> prepare("INSERT INTO images (unsplash_url, path, filename, location, description) VALUES (:unsplash_url, :path, :filename, :location, :description)");
             $query -> bindParam(":unsplash_url", $unsplash_url);
             $query -> bindParam(":path", $path);
             $query -> bindParam(":filename", $filename);
