@@ -27,13 +27,21 @@
             $location_text_field = $this -> create_location_text_field($image -> get_location());
             $description_text_field = $this -> create_description_text_field($image -> get_description());
             $save_button = $this -> create_save_button();
+            $cancel_button = $this -> create_cancel_button();
             $delete_button = $this -> create_delete_button();
             return "<form action='process.php?id=$id' method='POST' enctype='multipart/form-data'>
                         $unsplash_url_text_field
                         $location_text_field
                         $description_text_field
+                        <div class='row'>
+                        <div class='col'>
                         $save_button
+                        $cancel_button
+                        </div>
+                        <div class='col'>
                         $delete_button
+                        </div>
+                        </div>
                     </form>";
         }
 
@@ -76,6 +84,10 @@
 
         private function create_save_button() {
             return "<button type='submit' class='btn btn-primary' name='save_button'>Save</button>";
+        }
+
+        private function create_cancel_button() {
+            return "<button type='submit' class='btn btn-secondary' name='cancel_button'>Cancel</button>";
         }
 
         private function create_delete_button() {
