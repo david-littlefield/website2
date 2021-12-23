@@ -45,7 +45,9 @@
             $query -> bindParam(":filename", $filename);
             $query -> bindParam(":location", $location);
             $query -> bindParam(":description", $description);
-            var_dump($query -> execute());
+            $query -> execute();
+            $this -> record["id"] = $query -> fetch(PDO::lastInsertId);
+            echo $this -> record["id"];
         }
 
         public function update_record($unsplash_url, $location, $description) {
