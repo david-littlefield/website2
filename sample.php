@@ -73,6 +73,7 @@
     $sample -> read_records();
     echo "The current records:";
     var_dump($sample -> records);
+    echo "<br><br>";
 
     # create record in database
     $unsplash_url = "https://unsplash.com/photos/UoqAR2pOxMo";
@@ -85,11 +86,13 @@
     $sample -> read_record($id);
     echo "The new record:";
     var_dump($sample -> record);
+    echo "<br><br>";
 
     # read records in database
     $sample -> read_records();
     echo "The current records:";
     var_dump($sample -> records);
+    echo "<br><br>";
 
     # update record in database
     $unsplash_url = $sample -> record["unsplash_url"];
@@ -99,12 +102,14 @@
     $sample -> read_record($id);
     echo "The updated record:";
     var_dump($sample -> record);
+    echo "<br><br>";
 
     # delete record in database
     $sample -> delete_record($id);
     $sample -> read_records();
     echo "The current records:";
     var_dump($sample -> records);
+    echo "<br><br>";
 
 
 ?>
