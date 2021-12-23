@@ -36,6 +36,8 @@
             $query -> execute();
             $this -> record = $query -> fetch(PDO::FETCH_ASSOC);
             var_dump($this -> record);
+            echo $this -> record;
+            print_r($this -> record);
         }
 
         public function create_record($unsplash_url, $path, $filename, $location, $description) {
