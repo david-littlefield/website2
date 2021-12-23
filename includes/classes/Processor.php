@@ -19,7 +19,7 @@
                 return false;
             }
             $filename = $this -> parse_filename($unsplash_url) . "." . $extension;
-            $path = "assets/img/" . $filename;
+            $path = "/assets/img/" . $filename;
             $url = $this -> parse_url($headers);
             $this -> download_file($url, $path);
             if (!file_exists($path)) {
