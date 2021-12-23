@@ -84,6 +84,10 @@
     $sample -> read_record($id);
     var_dump($sample -> record);
 
+    # read records in database
+    $sample -> read_records();
+    var_dump($sample -> records);
+
     # update record in database
     $unsplash_url = $sample -> record["unsplash_url"];
     $location = $sample -> record["location"];
