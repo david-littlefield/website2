@@ -8,6 +8,8 @@
         $image = new Image($connection, "", $_GET["id"]);
     }
 
+    $processor = new Processor($connection);
+
     if (isset($_POST["save_button"])) {
         $updated = $image -> update_record(
             $_POST["unsplash_input"],
@@ -22,7 +24,6 @@
     }
 
     if (isset($_POST["upload_button"])) {
-        $processor = new Processor($connection);
         $uploaded = $processor -> upload(
             $_POST["unsplash_input"],
             $_POST["location_input"],
@@ -40,10 +41,14 @@
     }
 
     if (isset($_POST["delete_button"])) {
-        $deleted = $image -> delete_record();
-        if (!$deleted) {
+        $record_deleted = $image -> delete_record();
+        if (!$record_deleted) {
             echo "Could not delete record";
             exit();
+        }
+        $file_deleted = $processor -> delete_file($image -> get_path());
+        if (!$file_deleted) { 
+            echo ("File could not be deleted"); 
         }
         header("Location: /");
     }
