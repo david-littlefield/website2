@@ -8,7 +8,7 @@
         # specifies information to connect to database
         $database = "website";
         $host = "198.74.61.19";
-        $username = "littlefd";
+        $user = "littlefd";
         $password = "StrongPassword1234!";
 
         # connects to database
