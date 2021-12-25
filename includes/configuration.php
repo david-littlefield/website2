@@ -12,7 +12,7 @@
         $password = "StrongPassword1234!";
 
         # connects to database
-        $connection = new PDO("mysql:dbname=$database;host=$host", $username, $password);
+        $connection = new PDO("mysql:dbname=$database;host=$host", $user, $password);
         $connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
     
     # displays error messages that occur durring attempt
