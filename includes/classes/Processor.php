@@ -1,5 +1,5 @@
 <?php
-    require_once("includes/classes/Image.php");
+    require_once("includes/classes/Record.php");
 
     class Processor {
 
@@ -26,8 +26,8 @@
                 echo "Failed to download image";
                 return false;
             }
-            $image = new Image($this -> connection);
-            if (!$image -> create_record($unsplash_url, $path, $filename, $location, $description)) {
+            $record = new Record($this -> connection);
+            if (!$record -> create($unsplash_url, $path, $filename, $location, $description)) {
                 echo "Failed to create query";
                 return false;
             }

@@ -21,11 +21,11 @@
                     </form>";
         }
 
-        public function create_edit_form($image) {
-            $id = $image -> get_id();
-            $unsplash_url_text_field = $this -> create_unsplash_url_text_field($image -> get_unsplash_url());
-            $location_text_field = $this -> create_location_text_field($image -> get_location());
-            $description_text_field = $this -> create_description_text_field($image -> get_description());
+        public function create_edit_form($record) {
+            $id = $record -> get_id();
+            $unsplash_url_text_field = $this -> create_unsplash_url_text_field($record -> get_unsplash_url());
+            $location_text_field = $this -> create_location_text_field($record -> get_location());
+            $description_text_field = $this -> create_description_text_field($record -> get_description());
             $save_button = $this -> create_save_button();
             $cancel_button = $this -> create_cancel_button();
             $delete_button = $this -> create_delete_button();

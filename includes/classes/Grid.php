@@ -1,6 +1,6 @@
 <?php
 
-    require_once("includes/classes/Image.php");
+    require_once("includes/classes/Record.php");
     require_once("includes/classes/Grid_Item.php");
 
     class Grid {
@@ -19,8 +19,8 @@
             $html = "";
             $html .= "<row>";
             while ($row = $query -> fetch(PDO::FETCH_ASSOC)) {
-                $image = new Image($this -> connection, $row);
-                $grid_item = new Grid_Item($image);
+                $record = new Record($this -> connection, $row);
+                $grid_item = new Grid_Item($record);
                 $html .= $grid_item -> create();
                 $index ++;
                 if ($index % 2 == 0 && $index != $count) {
